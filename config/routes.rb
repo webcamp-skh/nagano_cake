@@ -1,3 +1,25 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'home#top'
+  get 'home/about' => 'home#about'
+
+  devise_for :users
+  resources :users, only: [:show, :edit, :update] do
+    resources :addresses, only: [:index, :edit, :update, :create, :destroy]
+  end
+  get 'users/:id/quit' => 'users#quit'
+
+  resources :items, only: [:index, :show]
+
+  get 'genres/:id' => 'genres#show'
+
+  resources :cart_items, only: [:create, :index, :destroy, :update]
+  delete 'cart_items' => 'cart_items#all_destroy'
+
+  resources :orders, only: [:index, :show, :new, :create]
+  get 'orders/confirm' => 'orders#confirm'
+  get 'orders/thanks' => 'orders#thanks'
+
+  namespace :admin do
+  end
+
 end
