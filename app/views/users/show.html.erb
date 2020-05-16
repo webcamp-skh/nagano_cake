@@ -1,0 +1,5 @@
+<%= @user.last_name_kana%>
+
+<% if @user==current_user%>
+<%= link_to "ログアウと", destroy_user_session_path%>
+<%end%>
