@@ -23,7 +23,29 @@ header span {
   padding: 10px 50px;
 }
 
+
 header ul {
   list-style: none;
 }
 
+.title{
+	padding-left: 100px;
+	background-color: #eeeeee;
+}
+
+.info-text{
+	list-style-type: none;
+	font-size: 20px;
+	display: inline;
+}
+
+
+.user_info th{
+	border: solid 1px #000;
+	background-color: #eeeeee;
+	padding: 10px 50px 10px 2px;
+}
+.user_info td{
+	border: solid 1px #000;
+	padding: 10px 150px 10px 2px;
+}
