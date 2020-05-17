@@ -29,8 +29,15 @@ header ul {
 }
 
 .title{
-	padding-left: 100px;
+	margin-left: 100px;
 	background-color: #eeeeee;
+	display: inline-block;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.form-horizontal{
+	margin-top: 50px;
 }
 
 .info-text{
@@ -39,6 +46,16 @@ header ul {
 	display: inline;
 }
 
+.login-link-text{
+	margin-left: 150px;
+}
+
+.info{
+	margin-top: 30px;
+	margin-bottom: 20px;
+	margin-left: 0px;
+	padding-left: 0px;
+}
 
 .user_info th{
 	border: solid 1px #000;

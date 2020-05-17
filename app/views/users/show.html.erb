@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
-		<h2 class="title">マイページ</h2>
-		<ul class="clearfix">
+		<h3 class="title">マイページ</h3>
+		<ul class="info">
 			<li class="info-text"><strong>登録情報</strong></li>
 			<li class="info-text"><%= link_to "編集する", edit_user_path, class: "btn btn-primary" %></li>
 			<li class="info-text"><%= link_to "パスワードを変更する", edit_user_password_path, class: "btn btn-primary" %></li>
@@ -34,11 +34,12 @@
 				</tr>
 			</table>
 		</div>
-			<P><div class="info-text">配送先</div>
-				<%= link_to "一覧を見る",user_addresses_path, class: "btn btn-primary" %>
-			</P>
+			<ul class="info">
+				<li class="info-text"><strong>配送先</strong></li>
+				<li class="info-text"><%= link_to "一覧を見る", user_addresses_path(@user), class: "btn btn-primary" %></li>
+			</ul>
 			<!-- 注文一覧@userの追加必要 -->
-			<ul>
+			<ul class="info">
 				<li class="info-text"><strong>注文履歴</strong></li>
 				<li class="info-text"><%= link_to "一覧を見る", orders_path, class: "btn btn-primary" %></li>
 			</ul>
