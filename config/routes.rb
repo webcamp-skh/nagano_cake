@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   root 'home#top'
   get 'home/about' => 'home#about'
 
@@ -8,7 +9,7 @@ Rails.application.routes.draw do
   end
   get 'users/:id/quit' => 'users#quit'
 
-  resources :items, only: [:index, :show]
+  resources :items, only: [:index, :show,:create]
 
   get 'genres/:id' => 'genres#show'
 
