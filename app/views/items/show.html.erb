@@ -5,3 +5,10 @@
 <%= @item.description %>
 <%= @item.price %>
 
+<%= form_for @cart_item do |f| %>
+<%= f.hidden_field :item_id, value: @item.id %>
+
+<%= f.select :item_count,(1..50) %>
+<%= f.submit "カートに入れる" %>
+<% end %>
+
