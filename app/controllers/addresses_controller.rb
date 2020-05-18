@@ -18,11 +18,13 @@ class AddressesController < ApplicationController
 
 	def edit
 		@user = current_user
-		@address = Address.new(address_params)
+		@address = current_user.addresses.find_by(id: params[:id])
 	end
 
 	def update
-		
+		@address = current_user.addresses.find_by(id: params[:id])
+		@address.update(address_params)
+		redirect_to user_addresses_path
 	end
 
 	def destroy

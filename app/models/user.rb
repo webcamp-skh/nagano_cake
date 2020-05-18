@@ -8,4 +8,7 @@ class User < ApplicationRecord
   has_many :cart_items, dependent: :destroy
   has_many :orders
 
+  def active_for_authentication?
+  	super && (self.status == true)
+  end
 end

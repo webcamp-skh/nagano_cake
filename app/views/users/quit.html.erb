@@ -1,1 +1,18 @@
-退会ページ
+<div class="container">
+	<div class="row">
+		<div class="quit-page">
+			<div class="quit-title">
+				<b>本当に退会しますか？</b>
+			</div>
+			<div class="quit-text">
+				<P>退会すると、会員登録情報や</P>
+				<p>これまでの購入履歴が閲覧できなくなります</p>
+				<p>退会する場合は、「退会する」をクリックしてください</p>
+			</div>
+			<div class="quit-button">
+				<%= link_to "退会しない", user_path(current_user), class: "btn btn-primary quit-btn" %>
+				<%= link_to "退会する", users_hide_path(current_user), method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger quit-btn" %>
+			</div>
+		</div>
+	</div>
+</div>
