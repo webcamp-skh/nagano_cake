@@ -19,7 +19,7 @@
         <nav class="nav navbar-nav navbar-right">
           <ul class="nav-pills">
             <% if user_signed_in? %>
-              <li>ようこそ、<%= current_user.last_name %> <%= current_user.first_name %>さん！</li>
+              <li>ようこそ、<%= "#{current_user.last_name} #{current_user.first_name}" %>さん！</li>
               <li><%= link_to "マイページ", user_path(current_user), class: "btn btn-default" %></li>
               <li><%= link_to "商品一覧", items_path, class: "btn btn-default" %></li>
               <li><%= link_to "カート", cart_items_path, class: "btn btn-default" %></li>
@@ -35,6 +35,12 @@
       </div>
     </header>
 
-    <%= yield %>
+    <div class="container">
+      <p id="notice"><%= flash[:notice] %></p>
+      <p id="success"><%= flash[:success] %></p>
+      <p id="alert"><%= flash[:alert] %></p>
+      <p id="error"><%= flash[:error] %></p>
+      <%= yield %>
+    </div>
   </body>
 </html>
