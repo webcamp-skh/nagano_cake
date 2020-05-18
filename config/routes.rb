@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  
-  
+
   root 'home#top'
   get 'home/about' => 'home#about'
 
@@ -9,8 +8,9 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index, :edit, :update, :create, :destroy]
   end
   get 'users/:id/quit' => 'users#quit', as: 'quit'
+  put 'users/:id/hide' => 'users#hide', as: 'users_hide'
 
-  resources :items, only: [:index, :show,:create]
+  resources :items, only: [:index, :show, :create] #createは一時的に作成（管理者ページができたら削除）
 
   get 'genres/:id' => 'genres#show'
 

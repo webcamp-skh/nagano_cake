@@ -1,8 +1,6 @@
 <div class="container">
 	<div class="row">
 		<h3 class="title">配送先登録/一覧</h3>
-
-		<h3 class="title">配送先編集</h3>
 		<%= form_for [@user,@address] do |f| %>
 	<div class="form-horizontal">
 
@@ -30,7 +28,7 @@
 	 </div>
 <% end %>
 
-
+		
 		<div class="addresses-list">
 		<table>
 			<thead>
@@ -48,11 +46,13 @@
 						<td><%= address.postal_code %></td>
 						<td><%= address.address %></td>
 						<td><%= address.receiver_name %></td>
-						<td><%= link_to "編集する",edit_user_address_path(@user,address) %>
-							<%= link_to "削除", user_address_path(@user,address), method: :delete %>
-						</td>
+							
+						<td><%= link_to "編集する",edit_user_address_path(@user,address), class: "button btn btn-primary" %>
+						    <%= link_to "削除する", user_address_path(@user,address), method: :delete, class: "button btn btn-danger" %>
+							</td>
+						</div>
 					</tr>
-					<% end %>
+				<% end %>
 			</tbody>
 		</table>
 		</div>

@@ -4,9 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
-  has_many :addresses
+  has_many :addresses, dependent: :destroy
   has_many :cart_items, dependent: :destroy
+  has_many :orders
 
-
+  def active_for_authentication?
+  	super && (self.status == true)
+  end
 end
