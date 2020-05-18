@@ -10,31 +10,6 @@
   </head>
 
   <body>
-    <header class="navbar">
-      <div class="container">
-
-        <nav class="nav navbar-nav navbar-left">
-          <span>Logo</span>
-        </nav>
-        <nav class="nav navbar-nav navbar-right">
-          <ul class="nav-pills">
-            <% if user_signed_in? %>
-              <li>ようこそ、<%= current_user.last_name %> <%= current_user.first_name %>さん！</li>
-              <li><%= link_to "マイページ", user_path(current_user), class: "btn btn-default" %></li>
-              <li><%= link_to "商品一覧", items_path, class: "btn btn-default" %></li>
-              <li><%= link_to "カート", cart_items_path, class: "btn btn-default" %></li>
-              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-default" %></li>
-            <% else %>
-              <li><%= link_to "商品一覧", items_path, class: "btn btn-default" %></li>
-              <li><%= link_to "新規登録", new_user_registration_path, class: "btn btn-default" %></li>
-              <li><%= link_to "ログイン", new_user_session_path, class: "btn btn-default" %></li>
-            <% end %>
-          </ul>
-        </nav>
-
-      </div>
-    </header>
-
     <%= yield %>
   </body>
 </html>
