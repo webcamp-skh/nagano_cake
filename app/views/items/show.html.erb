@@ -1,0 +1,14 @@
+
+<h2> 商品　詳細　</h2>
+<%= attachment_image_tag(@item, :image_id, :fill, 50, 50, fallback: "no_image.jpeg") %>
+<%= @item.name %>
+<%= @item.description %>
+<%= @item.price %>
+
+<%= form_for @cart_item do |f| %>
+<%= f.hidden_field :item_id, value: @item.id %>
+
+<%= f.select :item_count,(1..50) %>
+<%= f.submit "カートに入れる" %>
+<% end %>
+
