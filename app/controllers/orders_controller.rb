@@ -35,8 +35,9 @@ class OrdersController < ApplicationController
   def create
     order = Order.new(order_params)
     order.save
-    cart_items = CartItem.where(user_id: current_user.id)
-    cart_items.destroy
+
+
+    current_user.cart_items.destroy_all
     redirect_to 'thanks'
   end
 
