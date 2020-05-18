@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update] do
     resources :addresses, only: [:index, :edit, :update, :create, :destroy]
   end
-  get 'users/:id/quit' => 'users#quit'
+  get 'users/:id/quit' => 'users#quit', as: 'quit'
 
   resources :items, only: [:index, :show,:create]
 

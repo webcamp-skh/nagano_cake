@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_05_17_121230) do
+
 
   create_table "addresses", force: :cascade do |t|
     t.string "postal_code"
@@ -18,6 +20,7 @@ ActiveRecord::Schema.define(version: 2020_05_17_121230) do
     t.string "receiver_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "cart_items", force: :cascade do |t|

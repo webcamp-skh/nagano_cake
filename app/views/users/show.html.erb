@@ -1,5 +1,46 @@
-<%= @user.last_name_kana%>
-
-<% if @user==current_user%>
-<%= link_to "ログアウと", destroy_user_session_path, method: :delete %>
-<%end%>
+<div class="container">
+	<div class="row">
+		<h3 class="title">マイページ</h3>
+		<ul class="info">
+			<li class="info-text"><strong>登録情報</strong></li>
+			<li class="info-text"><%= link_to "編集する", edit_user_path, class: "btn btn-primary" %></li>
+			<li class="info-text"><%= link_to "パスワードを変更する", edit_user_password_path, class: "btn btn-primary" %></li>
+		</ul>
+		<div class="user_info">
+			<table>
+				<tr>
+					<th>氏名</th>
+					<td><%= @user.last_name%>　<%= @user.first_name %></td>
+				</tr>
+				<tr>
+					<th>カナ</th>
+					<td><%= @user.last_name_kana %>　<%= @user.first_name_kana %></td>
+				</tr>
+				<tr>
+					<th>郵便番号</th>
+					<td><%= @user.postal_code %></td>
+				</tr>
+				<tr>
+					<th>住所</th>
+					<td><%= @user.address %></td>
+				</tr>
+				<tr>
+					<th>電話番号</th>
+					<td><%= @user.phone_number %></td>
+				</tr>
+				<tr>
+					<th>メールアドレス</th>
+					<td><%= @user.email %></td>
+				</tr>
+			</table>
+		</div>
+			<ul class="info">
+				<li class="info-text"><strong>配送先</strong></li>
+				<li class="info-text"><%= link_to "一覧を見る", user_addresses_path(@user), class: "btn btn-primary" %></li>
+			</ul>
+			<!-- 注文一覧@userの追加必要 -->
+			<ul class="info">
+				<li class="info-text"><strong>注文履歴</strong></li>
+				<li class="info-text"><%= link_to "一覧を見る", orders_path(@user), class: "btn btn-primary" %></li>
+			</ul>
+</div>
