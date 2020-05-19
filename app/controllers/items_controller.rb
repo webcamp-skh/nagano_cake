@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
   def show
   	  @item = Item.find(params[:id])
       @cart_item =CartItem.new
+
   end
 
   def create
@@ -19,7 +20,7 @@ class ItemsController < ApplicationController
 
   public
   def item_params
-  	params.require(:item).permit(:name, :description, :image_id, :status, :price)
+  	  params.require(:item).permit(:name, :description, :image_id, :status, :price)
   end
 
 end

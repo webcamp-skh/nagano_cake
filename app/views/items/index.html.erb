@@ -1,93 +1,97 @@
 
 
 
-  
-  	<div class = "container">
-     <div class="row">
+
+<div class = "container">
+   <div class="row">
 	  <div class="col-xs-3">
-       <p class="bg-warning">
-       <h2>商品登録</h2>
-       <%= form_for(@item) do |f| %>
+        <p class="bg-warning">
+         <h2>商品登録</h2>
+         <%= form_for(@item) do |f| %>
 
-		<div class="field row">
-		<%= f.label :商品名 %>
-		<%= f.text_field :name, class: "col-xs-12 book_title" %>
-		</div>
+			<div class="field row">
+			<%= f.label :商品名 %>
+			<%= f.text_field :name, class: "col-xs-12 item" %>
+			</div>
 
-		<div class="field row">
-		<%= f.label :商品説明 %>
-		<%= f.text_field :description, class: "col-xs-12 book_title" %>
-		</div>
+			<div class="field row">
+			<%= f.label :商品説明 %>
+			<%= f.text_field :description, class: "col-xs-12 item" %>
+			</div>
 
-		<div class="field row">
-		<%= f.label :価格%>
-		<%= f.text_field :price, class: "col-xs-12 book_title"  %>
-		</div>
+			<div class="field row">
+			<%= f.label :価格%>
+			<%= f.text_field :price, class: "col-xs-12 item"  %>
+			</div>
 
-		<div class="field row">
-		<%= f.label :image %>
-		<%= f.attachment_field :image, class: "col-xs-12 book_title"  %>
-		</div>
+			<div class="field row">
+			<%= f.label :image %>
+			<%= f.attachment_field :image, class: "col-xs-12 item"  %>
+			</div>
 
-		<div class="field row">
-		<%= f.label :ステータス　%>
-		<%= f.text_field :status, class: "col-xs-12 book_title" %>
-		</div>
+			<div class="field row">
+			<%= f.label :ステータス　%>
+			<%= f.text_field :status, class: "col-xs-12 item" %>
+			</div>
 
-		<div class="actions row">
-				<%= f.submit class: "btn btn-primary col-xs-12" %>
+			<div class="actions row">
+					<%= f.submit class: "btn btn-primary item" %>
 			</div>
 
 		<% end %>
+	    </p>
 	    </div>
-        
+
 
         <div class="col-xs-9">
-		<h2>商品一覧</h2>
-		<!--item一覧 -->
-		<table class="table table-hover table-inverse">
-			<thead>
-				<tr>
-					<th>商品画像</th>
-					<th>商品名</th>
-                
-					</th>
-					<th>商品価格</th>
-					<th></th>
-					<th colspan="3"></th>
-				</tr>
-			</thead>
+				<h2>商品一覧</h2>
+				<!--item一覧 -->
+				<table class="table table-hover table-inverse">
+					<thead>
+						<tr>
+							<th>商品画像</th>
+							<th>商品名</th>
+							<th></th>
+							<th>商品価格</th>
+							<th></th>
+							<th colspan="3"></th>
+						</tr>
+					</thead>
 
-			<tbody>
-				<% @items.each do |item| %>
-				<tr>
-					<td><%= attachment_image_tag(item, :image_id, :fill, 50, 50, fallback: "no_image.jpeg") %></th>
-					<td><%= link_to item_path(item) do %>
-                    
-						<%= item.name %>
-						<% end %>
-					</td>
-					<td><%= item.price %></td>
-					<% end %>
-　　　　　　　<nav>
-					 <ul class="pagination">
-					 <li>
-					 <a href="#" aria-label="前のページへ">
-					 <span aria-hidden="true">«</span>
-					 </a>
-					 </li>
-					 <li><a href="#">1</a></li>
-					 <li class="active"><a href="#">2</a></li>
-					 <li><a href="#">3</a></li>
-					 <li><a href="#">4</a></li>
-					 <li><a href="#">5</a></li>
-					 <li>
-					 <a href="#" aria-label="次のページへ">
-					 <span aria-hidden="true">»</span>
-					 </a>
-					 </li>
-					 </ul>
-					</nav>
-           
+					<tbody>
+						<% @items.each do |item| %>
+						<tr>
+							<td><%= attachment_image_tag(item, :image_id, :fill, 50, 50, fallback: "no_image.jpeg") %></td>
+							<td><%= link_to item_path(item) do %>
+								<%= item.name %>
+								<% end %></td>
+							<td><%= item.price %></td>
+							<% end %>
+						</tr>
+					</tbody>
+				</table>
 
-            </body>
+
+		　　　　　　　         <nav>
+									 <ul class="pagination">
+									 <li>
+									 <a href="#" aria-label="前のページへ">
+									 <span aria-hidden="true">«</span>
+									 </a>
+									 </li>
+									 <li><a href="#">1</a></li>
+									 <li class="active"><a href="#">2</a></li>
+									 <li><a href="#">3</a></li>
+									 <li><a href="#">4</a></li>
+									 <li><a href="#">5</a></li>
+									 <li>
+									 <a href="#" aria-label="次のページへ">
+									 <span aria-hidden="true">»</span>
+									 </a>
+									 </li>
+									 </ul>
+							</nav>
+
+		</div>
+	</div>
+</div>
