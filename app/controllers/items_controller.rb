@@ -13,8 +13,8 @@ class ItemsController < ApplicationController
   def create
       @item = Item.new(item_params)
       @items = Item.all
-      @item.save 
-      redirect_to @item     
+      @item.save
+      redirect_to @item
   end
 
   public
