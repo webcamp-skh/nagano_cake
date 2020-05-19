@@ -12,12 +12,12 @@
         </tr>
       </thead>
       <tbody>
-        <%= @order.order_items.each do |order_item| %>
+        <%= current_user.cart_items.each do |cart_item| %>
           <tr>
-            <td><%= attachment_image_tag order_item.item, :image_id, :fill, 30, 40, fallback: "no_image.jpg" %><%= order_item.item.name %></td>
-            <td><%= order_item.ordered_price %></td>
-            <td><%= order_item.item_count %></td>
-            <td><%= order_item.ordered_price * order_item.item_count %></td>
+            <td><%= attachment_image_tag cart_item.item, :image_id, :fill, 30, 40, fallback: "no_image.jpg" %><%= cart_item.item.name %></td>
+            <td><%= cart_item.item.price * 110 / 100.0 %></td>
+            <td><%= cart_item.item_count %></td>
+            <td><%= cart_item.item.price * cart_item.item_count * 110 / 100.0 %></td>
           </tr>
         <% end %>
       </tbody>
@@ -36,7 +36,7 @@
       <tbody>
         <tr>
           <td><%= @order.shipping %></td>
-          <td><%= sum_ordered_price %></td>
+          <td><%= @item_total_price %></td>
           <td><%= @order.billing_amount %></td>
         </tr>
       </tbody>
@@ -46,9 +46,9 @@
   <div class="payment-method-confirm">
     <h3>支払方法</h3>
     <% if @order.payment_method == "credit" %>
-      <%= クレジットカード %>
+      <%= "クレジットカード" %>
     <% else %>
-      <%= 銀行振込 %>
+      <%= "銀行振込" %>
     <% end %>
   </div>
 
@@ -58,8 +58,6 @@
     <%= @order.ordered_receiver_name %>
   </div>
 
-  <%= form_with(model: @order) %>
 
-  <% end %>
 
 </div>
