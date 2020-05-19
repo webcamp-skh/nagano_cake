@@ -3,38 +3,40 @@
      <div class="row">
      	<div class="col-xs-12">
 
+     		<%= form_for @cart_item do |f| %>
+
 
      		<table class="table">
      			<h2>商品詳細</h2>
-			 <thead>
-				<tr>
-				<th></th>
-				<th>商品名</th>
-				<th>商品説明</th>
-				<th></th>
-				<th>個数選択</th>
-				<th></th>
-				</tr>
-			</thead>
+				 <thead>
+				    <tr>
+						<th></th>
+						<th>商品名</th>
+						<th>商品説明</th>
+						<th></th>
+						<th>個数選択</th>
+						<th></th>
+					</tr>
+				</thead>
 
-			<tbody>
-				<tr>
-				<td><%= attachment_image_tag(@item, :image_id, :fill, 50, 50, fallback: "no_image.jpeg") %></td>
-                <td><%= @item.name %></td>
-                <td><%= @item.description %></td>
-                <td><%= @item.price %></td>
-                <td><%= form_for @cart_item do |f| %>
-			    <%= f.hidden_field :item_id, value: @item.id %>
+				<tbody>
+				    <tr>
+						<td><%= attachment_image_tag(@item, :image_id, :fill, 50, 50, fallback: "no_image.jpeg") %></td>
+		                <td><%= @item.name %></td>
+		                <td><%= @item.description %></td>
+		                <td><%= @item.price %></td>
 
+		                <td> <%= f.hidden_field :item_id, value: @item.id %>
+					         <%= f.select :item_count,(1..50) %></td>
 
-			    <%= f.select :item_count,(1..50) %><td>
-			    <td><%= f.submit "カートに入れる", class: "button btn btn-primary" %>
-			    <% end %></td>
+					    <td><%= f.submit "カートに入れる", class: "button btn btn-primary" %></td>
+				    </tr>
+				</tbody>
+			</table>
+			    <% end %>
 
+        </div>
+     </div>
+ </div>
 
-
-
-
-
-</div></div></div>
 
