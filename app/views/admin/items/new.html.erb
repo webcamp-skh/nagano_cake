@@ -1,0 +1,37 @@
+
+ <p class="bg-warning">
+         <h2>商品登録</h2>
+         <%= form_for([:admin, @item]) do |f| %>
+
+			<div class="field row">
+			<%= f.label :商品名 %>
+			<%= f.text_field :name, class: "col-xs-12" %>
+			</div>
+
+			<div class="field row">
+			<%= f.label :商品説明 %>
+			<%= f.text_field :description, class: "col-xs-12" %>
+			</div>
+
+			<div class="field row">
+			<%= f.label :価格%>
+			<%= f.text_field :price, class: "col-xs-12"  %>
+			</div>
+
+			<div class="field row">
+			<%= f.label :image %>
+			<%= f.attachment_field :image, class: "col-xs-12"  %>
+			</div>
+
+			<div class="field row">
+			<%= f.label :ステータス　%>
+			<%= f.text_field :status, class: "col-xs-12　" %>
+			</div>
+
+			<div class="actions row">
+			<%= f.submit class: "btn btn-primary" %>
+			</div>
+
+		<% end %>
+	    </p>
+	    </div>

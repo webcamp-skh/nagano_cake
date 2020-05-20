@@ -44,3 +44,16 @@ $(function() {
     });
   });
 });
+
+$(function() {
+  $(document).on('turbolinks:load', () => {
+    $('#order_ordered_postal_code').jpostal({
+      postcode : [
+        '#order_ordered_postal_code'
+      ],
+      address: {
+        "#order_ordered_address" :"%3%4%5%6%7"
+      }
+    });
+  });
+});
