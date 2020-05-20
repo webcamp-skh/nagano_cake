@@ -4,43 +4,7 @@
 
 <div class = "container">
    <div class="row">
-	  <div class="col-xs-3">
-        <p class="bg-warning">
-         <h2>商品登録</h2>
-         <%= form_for(@item) do |f| %>
 
-			<div class="field row">
-			<%= f.label :商品名 %>
-			<%= f.text_field :name, class: "col-xs-12 item" %>
-			</div>
-
-			<div class="field row">
-			<%= f.label :商品説明 %>
-			<%= f.text_field :description, class: "col-xs-12 item" %>
-			</div>
-
-			<div class="field row">
-			<%= f.label :価格%>
-			<%= f.text_field :price, class: "col-xs-12 item"  %>
-			</div>
-
-			<div class="field row">
-			<%= f.label :image %>
-			<%= f.attachment_field :image, class: "col-xs-12 item"  %>
-			</div>
-
-			<div class="field row">
-			<%= f.label :ステータス　%>
-			<%= f.text_field :status, class: "col-xs-12 item" %>
-			</div>
-
-			<div class="actions row">
-					<%= f.submit class: "btn btn-primary item" %>
-			</div>
-
-		<% end %>
-	    </p>
-	    </div>
 
 
         <div class="col-xs-9">

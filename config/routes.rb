@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'users/:id/quit' => 'users#quit', as: 'quit'
   put 'users/:id/hide' => 'users#hide', as: 'users_hide'
 
-  resources :items, only: [:index, :show, :create] #createは一時的に作成（管理者ページができたら削除）
+  resources :items, only: [:index, :show]
 
   get 'genres/:id' => 'genres#show'
 
@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get 'orders/thanks' => 'orders#thanks'
 
   namespace :admin do
+
+  resources :items, only:[:show, :new, :create, :index, :update, :edit]
   end
 
 end
