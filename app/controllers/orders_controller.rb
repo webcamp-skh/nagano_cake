@@ -11,21 +11,21 @@ class OrdersController < ApplicationController
 
     @item_total_price = 0 #商品合計金額(税込)
     current_user.cart_items.each do |cart_item|
-      subtotal_price = cart_item.item.price * cart_item.item_count * 110 / 100.0 #小計(税込)
+      subtotal_price = cart_item.item.price * cart_item.item_count * 110 / 100 #小計(税込)
       @item_total_price += subtotal_price
     end
-    @order.billing_amount = item_total_price + @order.shipping #請求金額(税込)=商品合計金額+送料
+    @order.billing_amount = @item_total_price + @order.shipping #請求金額(税込)=商品合計金額+送料
 
-    if params[:address_id] == 0
+    if params[:address_id] == "0"
       @order.ordered_postal_code = current_user.postal_code
       @order.ordered_address = current_user.address
       @order.ordered_receiver_name = "#{current_user.last_name}#{current_user.first_name}"
-    elsif params[:address_id] == 1
-      @address = Address.find(params[:id])
+    elsif params[:address_id] == "1"
+      @address = Address.find(params[:address_select])
       @order.ordered_postal_code = @address.postal_code
       @order.ordered_address = @address.address
       @order.ordered_receiver_name = @address.receiver_name
-    elsif params[:address_id] == 2
+    elsif params[:address_id] == "2"
       @order.ordered_postal_code = params[:postal_code]
       @order.ordered_address = params[:address]
       @order.ordered_receiver_name = params[:receiver_name]
