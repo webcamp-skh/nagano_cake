@@ -1,0 +1,25 @@
+<div class = "container">
+  <div class="row">
+	<div class="col-xs-3">
+
+
+		<%= form_for([:admin, @item]) do |f| %>
+
+		<%= f.attachment_field :image, class: "image"  %>
+
+		<%= f.text_field :name, class: "name" %>
+
+		<%= f.text_area :description, class: "description" %>
+
+		<%= f.text_field :price, class: "price" %>
+
+		<%= f.text_field :status, class: "status" %>
+
+
+		<%= f.submit %>
+
+		<% end %>
+
+	</div>
+  </div>
+</div>

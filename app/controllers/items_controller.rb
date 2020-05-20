@@ -10,15 +10,10 @@ class ItemsController < ApplicationController
       @cart_item =CartItem.new
   end
 
-  def create
-      @item = Item.new(item_params)
-      @item.save
-      redirect_to @item
-  end
 
   private
   def item_params
-  	  params.require(:item).permit(:name, :description, :image_id, :status, :price)
+  	  params.require(:item).permit(:name, :description, :image_id, :status, :price,:genre_id)
   end
 
 end

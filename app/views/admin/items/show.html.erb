@@ -1,0 +1,13 @@
+
+
+<%= form_for @item do |f| %>
+
+<%= attachment_image_tag(@item, :image_id, :fill, 50, 50, fallback: "no_image.jpeg") %>
+
+<%= @item.name %>
+
+<%= @item.description %>
+
+<%= @item.price %>
+
+<% end %>
