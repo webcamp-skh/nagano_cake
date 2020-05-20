@@ -1,0 +1,10 @@
+ <div class="alert-errors">
+    <% if address.errors.any? %>
+        <h4><%= address.errors.count %>つのエラーがあります。</h4>
+        <ul>
+          <% address.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+    <% end %>
+</div>

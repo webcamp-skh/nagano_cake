@@ -44,12 +44,5 @@
 				<li class="info-text"><%= link_to "一覧を見る", orders_path(@user), class: "btn btn-primary" %></li>
 			</ul>
 		</div>
-		<% @users.each do |user| %>
-	  <tr>
-		
-		<td><%= user.email %></td>
-		<td><%= user.status %></td>
-		</tr>
-	<% end %>
 	</div>
 </div>
