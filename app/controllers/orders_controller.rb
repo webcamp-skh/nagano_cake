@@ -6,7 +6,6 @@ class OrdersController < ApplicationController
   def confirm
     @order = current_user.orders.new
     @order.payment_method = params[:payment_method]
-
     @order.shipping = 800 #送料
 
     @item_total_price = 0 #商品合計金額(税込)
@@ -35,7 +34,6 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.save
-
     current_user.cart_items.each do |cart_item|
       order_item = OrderItem.new
       order_item.item_id = cart_item.item_id
@@ -44,9 +42,7 @@ class OrdersController < ApplicationController
       order_item.ordered_price = cart_item.item.price * 110 / 100.0 #税込
       order_item.save
     end
-
     current_user.cart_items.destroy_all
-
     redirect_to orders_thanks_path
   end
 
@@ -54,9 +50,18 @@ class OrdersController < ApplicationController
   end
 
   def index
+    @orders = current_user.orders.all
   end
 
   def show
+    @order = Order.find(params[:id])
+    @order_items = @order.order_items
+
+    @item_total_price = 0 #商品合計金額(税込)
+    @order_items.each do |order_item|
+      subtotal_price = order_item.ordered_price * order_item.item_count #小計(税込)
+      @item_total_price += subtotal_price
+    end
   end
 
   private
