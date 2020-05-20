@@ -30,18 +30,16 @@ class OrdersController < ApplicationController
       @order.ordered_address = params[:address]
       @order.ordered_receiver_name = params[:receiver_name]
     end
-
-
   end
 
   def create
-    order = Order.new(order_params)
-    order.save
+    @order = Order.new(order_params)
+    @order.save
 
     current_user.cart_items.each do |cart_item|
-      order_item = OederItem.new
+      order_item = OrderItem.new
       order_item.item_id = cart_item.item_id
-      order_item.order_id = order.id
+      order_item.order_id = @order.id
       order_item.item_count = cart_item.item_count
       order_item.ordered_price = cart_item.item.price * 110 / 100.0 #税込
       order_item.save
@@ -49,7 +47,7 @@ class OrdersController < ApplicationController
 
     current_user.cart_items.destroy_all
 
-    redirect_to 'thanks'
+    redirect_to orders_thanks_path
   end
 
   def thanks
