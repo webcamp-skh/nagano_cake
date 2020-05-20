@@ -16,10 +16,10 @@
       <tbody>
         <% current_user.cart_items.each do |cart_item| %>
           <tr>
-            <td><%= attachment_image_tag cart_item.item, :image_id, size: "70x60", fallback: "no_image.jpg" %><%= cart_item.item.name %></td>
-            <td><%= cart_item.item.price * 110 / 100 %></td>
+            <td><%= attachment_image_tag cart_item.item, :image_id, size: "70x50", fallback: "no_image.jpg" %> <%= cart_item.item.name %></td>
+            <td><%= (cart_item.item.price * 110 / 100).to_s(:delimited) %></td>
             <td><%= cart_item.item_count %></td>
-            <td><%= cart_item.item.price * cart_item.item_count * 110 / 100 %></td>
+            <td><%= (cart_item.item.price * cart_item.item_count * 110 / 100).to_s(:delimited) %></td>
           </tr>
         <% end %>
       </tbody>
@@ -34,27 +34,29 @@
       </tr>
       <tr>
         <th>商品合計</th>
-        <td><%= @item_total_price %></td>
+        <td><%= @item_total_price.to_s(:delimited) %></td>
       </tr>
       <tr>
         <th>請求金額</th>
-        <td><%= @order.billing_amount %></td>
+        <td><%= @order.billing_amount.to_s(:delimited) %></td>
       </tr>
     </table>
   </div>
+</div>
 
-  <div class="payment-method-confirm col-xs-12">
-    <h3>支払方法</h3>
+<div class="row">
+  <div class="payment-method-confirm">
+    <h4>支払方法</h4>
     <%= @order.payment_method %>
   </div>
 
-  <div class="address-confirm col-xs-12">
-    <h3>お届け先</h3>
+  <div class="address-confirm">
+    <h4>お届け先</h4>
     <%= "#{@order.ordered_postal_code} #{@order.ordered_address}" %><br>
     <%= @order.ordered_receiver_name %>
   </div>
 
-  <div class="order-form text-center col-xs-12">
+  <div class="order-form text-center">
     <%= form_with(model: @order, local: true) do |f| %>
       <%= f.hidden_field :user_id, value: @order.user_id %>
       <%= f.hidden_field :payment_method, value: @order.payment_method %>
@@ -67,5 +69,4 @@
       </div>
     <% end %>
   </div>
-
 </div>
