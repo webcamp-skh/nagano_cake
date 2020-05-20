@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
 
   def index
-  	  @item = Item.new
   	  @items = Item.all
+      @item = Item.new
   end
 
   def show
@@ -13,14 +13,13 @@ class ItemsController < ApplicationController
 
   def create
       @item = Item.new(item_params)
-      @items = Item.all
       @item.save
-      redirect_to @item
+      redirect_to items_path
   end
 
-  public
+  private
   def item_params
-  	  params.require(:item).permit(:name, :description, :image_id, :status, :price)
+  	  params.require(:item).permit(:name, :description, :image, :status, :price)
   end
 
 end

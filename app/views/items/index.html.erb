@@ -1,13 +1,10 @@
 
-
-
-
 <div class = "container">
    <div class="row">
 	  <div class="col-xs-3">
-        <p class="bg-warning">
+        <div class="bg-warning">
          <h2>商品登録</h2>
-         <%= form_for(@item) do |f| %>
+         <%= form_for @item do |f| %>
 
 			<div class="field row">
 			<%= f.label :商品名 %>
@@ -35,11 +32,11 @@
 			</div>
 
 			<div class="actions row">
-					<%= f.submit class: "btn btn-primary item" %>
+					<%= f.submit(class: "btn btn-primary item") %>
 			</div>
 
 		<% end %>
-	    </p>
+	    </div>
 	    </div>
 
 
@@ -66,8 +63,9 @@
 								<%= item.name %>
 								<% end %></td>
 							<td><%= item.price %></td>
-							<% end %>
+							
 						</tr>
+						<% end %>
 					</tbody>
 				</table>
 

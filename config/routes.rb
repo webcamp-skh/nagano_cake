@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :admins
   root 'home#top'
   get 'home/about' => 'home#about'
 
@@ -22,6 +23,16 @@ Rails.application.routes.draw do
   get 'orders/thanks' => 'orders#thanks'
 
   namespace :admin do
+    get 'sign_in' => 'sessions#new'
+    post 'sign_in' => 'sessions#create'
+    delete 'sign_out' => 'sessions#destroy'
+    root 'orders#top'
+    resources :users, only:[:index, :show, :edit, :update]
+    resources :items, only:[:index, :new, :create, :show, :edit, :update]
+    resources :genres, only:[:index, :create, :edit, :update]
+    resources :orders, only:[:index, :show, :update]
+    get 'orders/user_index' => 'orders#user_index'
+    get 'orders/today_index' => 'orders#today_index'
   end
 
 end
