@@ -37,3 +37,4 @@ Rails.application.routes.draw do
     get 'orders/user_index' => 'orders#user_index'
     get 'orders/today_index' => 'orders#today_index'
 end
+end

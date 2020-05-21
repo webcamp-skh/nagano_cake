@@ -1,0 +1,16 @@
+
+<h3 class= "title">ジャンル編集</h3>
+
+　　　　　<%= form_for([:admin,@genre]) do |f| %>
+
+		<%= f.text_field :name, class: "col-xs-12" %>
+
+		<%= f.radio_button :status, true %>
+		<%= f.label :status ,"有効" %>
+
+		<%= f.radio_button :status, false %>
+		<%= f.label :status ,"無効" %>
+
+		<%= f.submit "変更", class: "btn btn-primary" %>
+
+	　　<% end %>

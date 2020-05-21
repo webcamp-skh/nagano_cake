@@ -18,14 +18,20 @@
 			<%= f.text_field :price, class: "col-xs-12"  %>
 			</div>
 
+
+		   <%= f.collection_select :genre_id, Genre.where(status: "true"), :id, :name, include_blank: "選択してください" %>
+
 			<div class="field row">
 			<%= f.label :image %>
 			<%= f.attachment_field :image, class: "col-xs-12"  %>
 			</div>
 
 			<div class="field row">
-			<%= f.label :ステータス　%>
-			<%= f.text_field :status, class: "col-xs-12　" %>
+			<%= f.radio_button :status, true %>
+		    <%= f.label :status ,"発売中" %>
+
+		    <%= f.radio_button :status, false %>
+		    <%= f.label :status ,"売り切れ" %>
 			</div>
 
 			<div class="actions row">
