@@ -18,7 +18,7 @@ class Users::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  protected
+   protected
     def reject_user
     @user = User.find_by(email: params[:user][:email].downcase)
       if (@user.valid_password?(params[:user][:password]) && (@user.active_for_authentication? == false))
@@ -29,5 +29,4 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-
 end
