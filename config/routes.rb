@@ -36,4 +36,5 @@ Rails.application.routes.draw do
     resources :orders, only:[:index, :show, :update]
     get 'orders/user_index' => 'orders#user_index'
     get 'orders/today_index' => 'orders#today_index'
+  end
 end
