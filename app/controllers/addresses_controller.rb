@@ -1,4 +1,5 @@
 class AddressesController < ApplicationController
+	before_action :baria_user
 
 	def index
 		@user = current_user
@@ -12,6 +13,7 @@ class AddressesController < ApplicationController
 		if @address.save
 			redirect_to user_addresses_path(current_user.id)
 		else
+			@addresses = @user.addresses
 			render 'index'
 		end
 	end
@@ -23,8 +25,12 @@ class AddressesController < ApplicationController
 
 	def update
 		@address = current_user.addresses.find_by(id: params[:id])
-		@address.update(address_params)
-		redirect_to user_addresses_path
+		if @address.update(address_params)
+			redirect_to user_addresses_path
+		else
+			@user = User.find(params[:user_id])
+			render 'edit'
+		end
 	end
 
 	def destroy
@@ -36,5 +42,13 @@ class AddressesController < ApplicationController
 	private
 	def address_params
 		params.require(:address).permit(:postal_code, :address, :receiver_name)
+	end
+
+	def baria_user
+		@user= User.find(params[:user_id])
+		if @user != current_user
+			flash[:alert]= "不正なアクセスです"
+			redirect_to root_path
+		end
 	end
 end
