@@ -19,22 +19,24 @@
 
 			<tbody>
 				<tr>
-				<td><%= attachment_image_tag(@item, :image_id, :fill, 50, 50, fallback: "no_image.jpeg") %></td>
-                <td><%= @item.name %></td>
-                <td><%= @item.description %></td>
-                <td><%= @item.price %></td>
-                <td><%= form_for @cart_item do |f| %>
-			    <%= f.hidden_field :item_id, value: @item.id %>
+				  <td><%= attachment_image_tag(@item, :image_id, :fill, 50, 50, fallback: "no_image.jpeg") %></td>
+          <td><%= @item.name %></td>
+          <td><%= @item.description %></td>
+          <td><%= @item.price %></td>
+          <td>
+            <%= form_for @cart_item do |f| %>
+              <%= f.hidden_field :item_id, value: @item.id %>
+              <%= f.select :item_count, (1..50) %>
+              <%= f.submit "カートに入れる", class: "button btn btn-primary" %>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    </div>
+  </div>
+</div>
 
 
-			    <%= f.select :item_count,(1..50) %><td>
-			    <td><%= f.submit "カートに入れる", class: "button btn btn-primary" %>
-			    <% end %></td>
-
-
-
-
-
-
-</div></div></div>
 
