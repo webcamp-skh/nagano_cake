@@ -30,11 +30,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'orders#top'
-    resources :users, only:[:index, :show, :edit, :update]
-    resources :items, only:[:index, :new, :create, :show, :edit, :update]
-    resources :genres, only:[:index, :create, :edit, :update]
-    resources :orders, only:[:index, :show, :update]
+    resources :users, only: [:index, :show, :edit, :update]
+    resources :items, only: [:index, :new, :create, :show, :edit, :update]
+    resources :genres, only: [:index, :create, :edit, :update]
     get 'orders/user_index' => 'orders#user_index'
     get 'orders/today_index' => 'orders#today_index'
+    resources :orders, only:[:index, :show, :update]
+    resources :order_items, only: [:update]
   end
 end
