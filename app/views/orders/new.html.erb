@@ -8,7 +8,7 @@
 
       <p>支払方法</p>
       <div class="field">
-        <%= f.radio_button :payment_method, "クレジットカード" %>
+        <%= f.radio_button :payment_method, "クレジットカード", checked: true %>
         <%= f.label :payment_method, "クレジットカード", value: "クレジットカード" %><br>
         <%= f.radio_button :payment_method, "銀行振込" %>
         <%= f.label :payment_method, "銀行振込", value: "銀行振込" %>
@@ -17,7 +17,7 @@
       <p>お届け先</p>
       <div class="field">
         <div class="user-address">
-          <%= f.radio_button :address_id, 0 %>
+          <%= f.radio_button :address_id, 0, checked: true %>
           <%= f.label :address_id, "ご自身の住所", value: 0 %><br>
           <%= "#{current_user.postal_code} #{current_user.address}" %><br>
           <%= "#{current_user.last_name}#{current_user.first_name}" %>
