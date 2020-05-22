@@ -58,7 +58,7 @@ hr {
 
 input {
 	border: solid 1px #000;
-	border-radius: 5px;
+	border-radius: 4px;
 }
 
 .btn-primary {
@@ -73,6 +73,26 @@ input {
 
 th {
 	background-color: #eee;
+}
+
+select {
+	-moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  display: inline-block;
+  padding: 0.6em 1.5em 0.6em 0.5em; /* 文字周りの余白 */
+  cursor: pointer; /* カーソルを指に */
+  line-height: 15px; /* 行高 */
+  font-size: 15px; /* フォントサイズ */
+  border-radius: 4px; /* 角丸 */
+  border: solid 1px #C0C0C0; /* 枠線 */
+  background-color: #fff;
+  background-image:
+  	linear-gradient(45deg, transparent 50%, rgba(0,0,0,0.4) 50%),
+  	linear-gradient(135deg, rgba(0,0,0,0.4) 50%, transparent 50%);
+  background-size: 5px 5px, 5px 5px;
+  background-position: calc(100% - 15px) 50%, calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
 }
 
 
@@ -228,13 +248,41 @@ th {
 	font-size: 18px;
 }
 
-.confirm {
+.confirm, .order-info, {
 	font-size: 18px;
 	margin: 15px 0
 }
+
+.order-info select {
+	width: 170px;
+	margin-bottom: 40px;
+}
+
+.select-box select {
+	width: 800px;
+}
+
 
 /* （管理者）注文画面 */
 #today-order-count {
 	margin-top: 100px;
 }
+
+.row-eq-height {
+  display: flex;
+  flex-wrap: wrap;
+}
+.price-info {
+	font-size: 18px;
+	margin-left: 30px;
+	position: relative;
+}
+
+.bottom {
+	position: absolute;
+	bottom: 20px;
+}
+
+
+
 
