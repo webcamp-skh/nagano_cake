@@ -6,42 +6,48 @@
   <div class="order-form">
     <%= form_with(url: orders_confirm_path, local: true) do |f| %>
 
-      <p>支払方法</p>
+      <h4 class="sub-title">支払方法</h4>
       <div class="field">
         <%= f.radio_button :payment_method, "クレジットカード", checked: true %>
-        <%= f.label :payment_method, "クレジットカード", value: "クレジットカード" %><br>
+        <%= f.label :payment_method, "クレジットカード", value: "クレジットカード", class: "label-size" %><br>
         <%= f.radio_button :payment_method, "銀行振込" %>
-        <%= f.label :payment_method, "銀行振込", value: "銀行振込" %>
+        <%= f.label :payment_method, "銀行振込", value: "銀行振込", class: "label-size" %>
       </div>
 
-      <p>お届け先</p>
+      <h4 class="sub-title">お届け先</h4>
       <div class="field">
-        <div class="user-address">
+        <div class="radio-button user-address">
           <%= f.radio_button :address_id, 0, checked: true %>
-          <%= f.label :address_id, "ご自身の住所", value: 0 %><br>
-          <%= "#{current_user.postal_code} #{current_user.address}" %><br>
-          <%= "#{current_user.last_name}#{current_user.first_name}" %>
+          <%= f.label :address_id, "ご自身の住所", value: 0, class: "label-size" %><br>
+          <div class="radio-button-content">
+            <%= "#{current_user.postal_code} #{current_user.address}" %><br>
+            <%= "#{current_user.last_name}#{current_user.first_name}" %>
+          </div>
         </div>
 
-        <div class="registration-address">
+        <div class="radio-button registration-address">
           <%= f.radio_button :address_id, 1 %>
-          <%= f.label :address_id, "登録済住所から選択", value: 1 %><br>
-          <%= f.select :address_select, options_for_select(current_user.addresses.map{ |address| ["#{address.postal_code} #{address.address} #{address.receiver_name}", address[:id]] }) %>
+          <%= f.label :address_id, "登録済住所から選択", value: 1, class: "label-size" %><br>
+          <div class="radio-button-content">
+            <%= f.select :address_select, options_for_select(current_user.addresses.map{ |address| ["#{address.postal_code} #{address.address} #{address.receiver_name}", address[:id]] }) %>
+          </div>
         </div>
 
-        <div class="new-address">
+        <div class="radio-button new-address">
           <%= f.radio_button :address_id, 2 %>
-          <%= f.label :address_id, "新しいお届け先", value: 2 %><br>
-          <%= f.label :postal_code, "郵便番号(ハイフンなし)" %>
-          <%= f.text_field :postal_code %><br>
-          <%= f.label :address, "住所" %>
-          <%= f.text_field :address %><br>
-          <%= f.label :receiver_name, "宛名" %>
-          <%= f.text_field :receiver_name %>
+          <%= f.label :address_id, "新しいお届け先", value: 2, class: "label-size" %><br>
+          <div class="radio-button-content">
+            <%= f.label :postal_code, "郵便番号(ハイフンなし)", class: "mini-label" %>
+            <%= f.text_field :postal_code, style: "width: 200px;" %><br>
+            <%= f.label :address, "住所", class: "mini-label" %>
+            <%= f.text_field :address, style: "width: 500px;" %><br>
+            <%= f.label :receiver_name, "宛名", class: "mini-label" %>
+            <%= f.text_field :receiver_name, style: "width: 200px;" %>
+          </div>
         </div>
 
-      <div class="actions">
-        <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
+      <div class="actions text-center">
+        <%= f.submit "確認画面へ進む", class: "btn-lg btn-primary" %>
       </div>
 
     <% end %>

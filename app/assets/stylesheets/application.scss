@@ -43,7 +43,40 @@ hr {
 }
 
 
+/* 共通 */
+.title{
+	margin-left: 100px;
+	background-color: #eeeeee;
+	display: inline-block;
+	padding-left: 20px;
+	padding-right: 20px;
+}
 
+.sub-title {
+	font-weight: bold;
+}
+
+input {
+	border: solid 1px #000;
+	border-radius: 5px;
+}
+
+.btn-primary {
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tbody > tr > td, tr {
+	border: solid 1px #000;
+	vertical-align: middle;
+}
+
+th {
+	background-color: #eee;
+}
+
+
+/* ユーザ画面 */
 .alert {
 	color: red;
 }
@@ -64,14 +97,6 @@ hr {
 
 .name{
 
-}
-
-.title{
-	margin-left: 100px;
-	background-color: #eeeeee;
-	display: inline-block;
-	padding-left: 20px;
-	padding-right: 20px;
 }
 
 .login-title{
@@ -141,11 +166,6 @@ hr {
 	font-size: 70%;
 }
 
-.btn-primary {
-	padding-left: 25px;
-	padding-right: 25px;
-}
-
 .quit-page{
 	text-align: center;
 	margin-top: 70px;
@@ -180,3 +200,41 @@ hr {
 .client th{
 	padding: 10px 30px 10px 0px;
 }
+
+
+/* 注文画面 */
+.field {
+	margin: 0 0 30px 40px;
+}
+
+.label-size {
+	font-size: 18px;
+	font-weight: normal;
+}
+
+.mini-label {
+	width: 180px;
+	font-weight: normal;
+	font-size: 15px;
+	margin-bottom: 10px;
+}
+
+.radio-button {
+	margin-bottom: 25px;
+}
+
+.radio-button-content {
+	margin-left: 30px;
+	font-size: 18px;
+}
+
+.confirm {
+	font-size: 18px;
+	margin: 15px 0
+}
+
+/* （管理者）注文画面 */
+#today-order-count {
+	margin-top: 100px;
+}
+
