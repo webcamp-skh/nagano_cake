@@ -85,6 +85,11 @@ input {
 	padding-right: 25px;
 }
 
+.btn-success{
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
 .table > thead > tr > th, .table > tbody > tr > th, .table > tbody > tr > td, tr {
 	border: solid 1px #000;
 	vertical-align: middle;
@@ -114,16 +119,16 @@ select {
   background-repeat: no-repeat;
 }
 
+.form-control {
+	display: inline-block;
+}
+
 
 /* ユーザ画面 */
 .alert {
 	color: red;
 }
 
-.btn-success{
-	padding-left: 40px;
-	padding-right: 40px;
-}
 
 .kotira {
 	padding-left: 10px;
@@ -275,13 +280,12 @@ select {
 	width: 180px;
 	font-weight: normal;
 	font-size: 15px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 
 .radio-button {
 	margin-bottom: 25px;
 }
-
 .radio-button-content {
 	margin-left: 30px;
 	font-size: 18px;
@@ -321,3 +325,4 @@ select {
 	position: absolute;
 	bottom: 20px;
 }
+
