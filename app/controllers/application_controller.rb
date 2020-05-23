@@ -8,14 +8,14 @@ class ApplicationController < ActionController::Base
 	    when Admin
 	      admin_root_path
 	    end
- 	 end
+ 	end
 
-	def after_sign_out_path_for(resouce)
-		 if Admin
-		     new_admin_session_path
-		 else
+	def after_sign_out_path_for(resource)
+		if resource == :admin
+		    new_admin_session_path
+		else
 		    root_path
-	     end
+		end
 	 end
 
 	private

@@ -1,0 +1,84 @@
+<div class="row">
+  <h3 class="title">注文履歴詳細</h3>
+</div>
+
+<div class="row">
+  <h4 class="sub-title col-xs-2">購入者</h4>
+  <p class="order-info col-xs-10">
+    <%= link_to "#{@order.user.last_name}#{@order.user.first_name}", admin_user_path(@order.user) %>
+  </p>
+</div>
+
+<div class="row">
+  <h4 class="sub-title col-xs-2">配送先</h4>
+  <p class="order-info col-xs-10">
+    <%= @order.ordered_postal_code %> <%= @order.ordered_address %><br>
+    <%= @order.ordered_receiver_name %>
+  </p>
+</div>
+
+<div class="row">
+  <h4 class="sub-title col-xs-2">支払方法</h4>
+  <p class="order-info col-xs-10"><%= @order.payment_method %></p>
+</div>
+
+<div class="row">
+  <h4 class="sub-title col-xs-2">注文ステータス</h4>
+  <div class="order-info col-xs-10">
+    <%= form_with model: [:admin, @order] do |f| %>
+      <%= f.select :order_status, ["入金待ち", "入金確認", "製作中", "発送準備中", "発送済み"] %>
+      <%= f.submit "更新", class: "btn btn-primary"  %>
+    <% end %>
+  </div>
+</div>
+
+<div class="row row-eq-height">
+  <div class="order-item-info col-xs-8">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>商品名</th>
+          <th>単価（税込）</th>
+          <th>数量</th>
+          <th>小計</th>
+          <th>製作ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% item_total_price = 0 %>
+        <% @order.order_items.each do |order_item| %>
+          <tr>
+            <td><%= order_item.item.name %></td>
+            <td><%= order_item.ordered_price.to_s(:delimited) %></td>
+            <td><%= order_item.item_count %></td>
+            <td><%= (order_item.ordered_price * order_item.item_count).to_s(:delimited) %></td>
+            <td>
+              <%= form_with(model: [:admin, order_item]) do |f| %>
+                <%= f.select :making_status, ["着手不可", "製作待ち", "製作中", "製作完了"] %>
+                <%= f.submit "更新", class: "btn btn-primary"  %>
+              <% end %>
+            </td>
+          </tr>
+          <% item_total_price += order_item.ordered_price * order_item.item_count %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="price-info col-xs-3">
+    <div class="bottom">
+    <strong class="col-xs-7">商品合計</strong>
+    <p class="col-xs-5 text-right">
+      <%= "#{item_total_price.to_s(:delimited)}円" %>
+    </p>
+    <strong class="col-xs-7">送料</strong>
+    <p class="col-xs-5 text-right">
+      <%= "#{@order.shipping.to_s(:delimited)}円" %>
+    </p>
+    <strong class="col-xs-7">請求金額合計</strong>
+    <strong class="col-xs-5 text-right">
+      <%= "#{@order.billing_amount.to_s(:delimited)}円" %>
+    </strong>
+    </div>
+  </div>
+</div>
