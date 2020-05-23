@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     post 'admin/sign_in' => 'admins/sessions#create', as: 'admin_session'
     delete 'admin/sign_out' => 'admins/sessions#destroy', as: 'destroy_admin_session'
   end
-  root 'home#top'
+  root 'items#index'
   get 'home/about' => 'home#about'
 
   devise_for :users
@@ -16,9 +16,9 @@ Rails.application.routes.draw do
   get 'users/:id/quit' => 'users#quit', as: 'quit'
   put 'users/:id/hide' => 'users#hide', as: 'users_hide'
 
-  resources :items, only: [:index, :show]
+  resources :items, only: [:show]
 
-  get 'genres/:id' => 'genres#show'
+  get 'genres/:id' => 'genres#show', as: 'genre_show'
 
   resources :cart_items, only: [:create, :index, :destroy, :update]
   delete 'cart_items' => 'cart_items#all_destroy', as: 'cart_all_destroy'
@@ -38,5 +38,4 @@ Rails.application.routes.draw do
     resources :orders, only:[:index, :show, :update]
     resources :order_items, only: [:update]
   end
-end
 end
