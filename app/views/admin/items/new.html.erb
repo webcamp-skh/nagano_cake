@@ -18,12 +18,14 @@
 			<%= f.text_field :price, class: "col-xs-12"  %>
 			</div>
 
-
-		   <%= f.collection_select :genre_id, Genre.where(status: "true"), :id, :name, include_blank: "選択してください" %>
+            <div class="field row">
+            <%= f.label :ジャンル%>
+		    <%= f.collection_select :genre_id, Genre.where(status: "true"), :id, :name, include_blank: "選択してください" %>
+            </div>
 
 			<div class="field row">
-			<%= f.label :image %>
-			<%= f.attachment_field :image, class: "col-xs-12"  %>
+			<%= f.label :画像 %>
+			<%= f.attachment_field :image %>
 			</div>
 
 			<div class="field row">
