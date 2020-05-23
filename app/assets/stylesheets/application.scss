@@ -17,15 +17,17 @@
     @import "bootstrap";
 
 /* ヘッダ */
-body {
-	margin: 30px 60px;
+header {
+	background-color: #444;
+	padding: 25px 0;
+	margin-bottom: 50px;
 }
 
 header span {
   font-size: 35px;
-  color: #808080;
-  border: solid 1.5px #808080;
-  padding: 10px 50px;
+  color: #DDD;
+  border: solid 1.5px #DDD;
+  padding: 5px 40px;
 }
 
 header ul {
@@ -37,13 +39,30 @@ header ul {
 	vertical-align: middle;
 }
 
-hr {
-	border: solid 0.8px #808080;
-	margin-top: 30px;
+.header-text {
+	color: #FFF;
+}
+
+/* フッタ */
+footer {
+	margin-top: 100px;
+}
+
+.footer-top {
+	height: 200px;
+	background-color: #444;
+}
+
+.footer-bottom p {
+	margin: 30px 0;
 }
 
 
 /* 共通 */
+.main-body {
+	min-height: 500px;
+}
+
 .title{
 	margin-left: 100px;
 	background-color: #eeeeee;
