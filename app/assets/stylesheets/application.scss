@@ -133,6 +133,9 @@ select {
 .form-group{
 	padding-left: 10px;
 }
+.form-user {
+	display: inline;
+}
 
 .info-text{
 	list-style-type: none;
@@ -168,7 +171,7 @@ select {
 	padding-top: 50px;
 }
 .addresses-list th{
-	padding: 10px 10px 10px 2px;
+	padding: 10px 80px 10px 2px;
 	background-color: #eeeeee;
 	border: solid 1px #000;
 }
@@ -220,7 +223,24 @@ select {
 .client th{
 	padding: 10px 30px 10px 0px;
 }
-
+.user-true{
+	background-color: #99ccff;
+	display: inline-block;
+	border: solid 1px #000;
+	border-radius: 5px;
+	padding-right: 8px;
+	padding-left: 2px;
+	margin-left: 10px;
+}
+.user-false{
+	background-color: #FF6633;
+	display: inline-block;
+	border: solid 1px #000;
+	border-radius: 5px;
+	padding-right: 8px;
+	padding-left: 2px;
+	margin-left: 10px;
+}
 
 /* 注文画面 */
 .field {
@@ -282,7 +302,3 @@ select {
 	position: absolute;
 	bottom: 20px;
 }
-
-
-
-

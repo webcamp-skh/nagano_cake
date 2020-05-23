@@ -1,7 +1,8 @@
 class Admin::UsersController < ApplicationController
+	# before_action :baria_admin
 
 	def index
-		@users = User.all
+		@users = User.page(params[:page])
 	end
 
 	def show
@@ -21,6 +22,13 @@ class Admin::UsersController < ApplicationController
 	private
 	def user_params
 		params.require(:user).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :phone_number, :email, :status)
+	end
+
+	def baria_admin
+		if Admin != current_user
+			flash[:alert] = "不正なアクセスです"
+			redirect_to root_path
+		end
 	end
 end
 
