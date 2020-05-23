@@ -18,7 +18,7 @@
 
 /* ヘッダ */
 header {
-	background-color: #444;
+	background-color: #333;
 	padding: 25px 0;
 	margin-bottom: 50px;
 }
@@ -50,7 +50,7 @@ footer {
 
 .footer-top {
 	height: 200px;
-	background-color: #444;
+	background-color: #333;
 }
 
 .footer-bottom p {
@@ -78,6 +78,15 @@ footer {
 input {
 	border: solid 1px #000;
 	border-radius: 4px;
+}
+
+a {
+	color: #333;
+	text-decoration: underline;
+}
+
+.btn {
+	text-decoration: none;
 }
 
 .btn-primary {
