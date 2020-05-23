@@ -1,0 +1,46 @@
+
+<h3 class="title">ジャンル一覧・追加</h3>
+	<%= form_for [:admin,@genre] do |f| %>
+
+		<%= f.text_field :name, class: "col-xs-12" %>
+
+		<%= f.radio_button :status, true %>
+		<%= f.label :status ,"有効" %>
+
+		<%= f.radio_button :status, false %>
+		<%= f.label :status ,"無効" %>
+
+		<%= f.submit "追加", class: "btn btn-primary" %>
+
+	<% end %>
+
+<div class = "container">
+  <div class="row">
+  	 <div class="col-xs-3">
+  	 	<table class="table table-hover table-inverse">
+  	 		<thead>
+				<tr>
+					<th>ジャンル</th>
+					<th>状態</th>
+					<th></th>
+					<th colspan="3"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @genres.each do |genre| %>
+				<tr>
+					<th><%= genre.name %></th>
+					<th><% if genre.status == true %>
+				    <p>有効</p>
+				    <% else %>
+				    <p>無効</p>
+				    <% end %></th>
+				    <th><%= link_to "Edit",edit_admin_genre_path(genre), class: "btn-sm btn-success" %></th>
+
+			    <% end %>
+			    </tr>
+			</tbody>
+		</table>
+
+
+
