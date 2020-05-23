@@ -7,12 +7,12 @@ class CartItemsController < ApplicationController
   def create
       @cart_item = CartItem.new(cart_item_params)
       items = current_user.cart_items.pluck(:item_id)
-      having_cart_item = CartItem.find_by(user_id: current_user.id, item_id: items)
-      if having_cart_item.nil?
+      if items.include?(@cart_item.item_id)
+        having_cart_item = CartItem.find_by(user_id: current_user.id, item_id: @cart_item.item_id)
+        having_cart_item.update(item_count: having_cart_item.item_count + @cart_item.item_count)
+      else
         @cart_item.user_id = current_user.id
         @cart_item.save
-      else
-        having_cart_item.update(item_count: having_cart_item.item_count + @cart_item.item_count)
       end
       redirect_to cart_items_path
   end
