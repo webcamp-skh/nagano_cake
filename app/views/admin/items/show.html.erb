@@ -1,15 +1,41 @@
+<div class="container">
+　　 <div class="row">
 
+　　　　<h3 class="title">商品詳細</h3>
 
-<%= form_for @item do |f| %>
+		　<%= form_for @item do |f| %>
 
-<%= attachment_image_tag(@item, :image_id, :fill, 50, 50, fallback: "no_image.jpeg") %>
+         <div class="col-xs-3">
+	　　　　<%= attachment_image_tag(@item, :image_id, :fill, 50, 50, fallback: "no_image.jpeg") %>
+		 </div>
 
-<%= @item.name %>
+		       <div class="col-xs-9">
 
-<%= @item.description %>
+		        <div class="row">
+		           <div class="col-xs-3">
+		　　　　　　 <%= f.label :商品名%>
+		           </div>
+		            <div class="col-xs-3">
+					<%= @item.name %>
+				    </div>
+			    </div>
 
-<%= @item.price %>
+			            <div class="row">
+			            	<div class="col-xs-3">
+			　　　　　　　    <%= f.label :商品説明%>
+			　　　　　　　    </div>
+			                <div class="col-xs-2">
+						    <%= @item.description %>
+					        </div>
+			            </div>
 
-<%= @item.genre.name %>
+            <div class="row">
+　　　　　　　<%= f.label :値段%>
+			<%= @item.price %>円
+		    </div>
 
-<% end %>
+		    <div class="row">
+　　　　　　　<%= f.label :ジャンル%>
+			<%= @item.genre.name %>
+			<% end %>
+		    </div>

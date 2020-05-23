@@ -41,7 +41,7 @@
 				  <td><%= attachment_image_tag(@item, :image_id, :fill, 50, 50, fallback: "no_image.jpeg") %></td>
           <td><%= @item.name %></td>
           <td><%= @item.description %></td>
-          <td><%= @item.price %></td>
+          <td><%= @item.price %>円</td>
           <td>
             <%= form_for @cart_item do |f| %>
               <%= f.hidden_field :item_id, value: @item.id %>
