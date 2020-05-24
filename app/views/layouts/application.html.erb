@@ -30,6 +30,7 @@
               <li><%= link_to "ジャンル一覧", admin_genres_path, class: "btn btn-default" %></li>
               <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-default"%></li>
             <% else %>
+              <li><%= link_to "店舗情報", home_about_path, class: "btn btn-default" %></li>
               <li><%= link_to "商品一覧", root_path, class: "btn btn-default" %></li>
               <li><%= link_to "新規登録", new_user_registration_path, class: "btn btn-default" %></li>
               <li><%= link_to "ログイン", new_user_session_path, class: "btn btn-default" %></li>

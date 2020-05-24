@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
-   		<%= render 'error_message', address:@address %>
 		<h3 class="title">配送先登録/一覧</h3>
+		<%= render 'layouts/error_message', model: @address %>
 		<%= render 'form', user: @user, addresses: @addresses %>
 
 		<% if @addresses %>
