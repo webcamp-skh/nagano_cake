@@ -132,6 +132,17 @@ select {
 	display: inline-block;
 }
 
+.alert-errors {
+	color: red;
+	margin: 30px 50px;
+	p {
+		font-size: 18px;
+	}
+	ul {
+		font-size: 15px;
+	}
+}
+
 
 /* ユーザ画面 */
 .alert {
