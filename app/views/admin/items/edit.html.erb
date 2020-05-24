@@ -1,25 +1,44 @@
 <div class = "container">
-  <div class="row">
-	<div class="col-xs-3">
+    <div class="row">
+	    <div class="col-xs-3">
+           <h3 class="title">商品編集</h3>
 
+			<%= form_for([:admin, @item]) do |f| %>
 
-		<%= form_for([:admin, @item]) do |f| %>
+	        <div class="field row">
+			<%= f.attachment_field :image, class: "image"  %>
+		    </div>
 
-		<%= f.attachment_field :image, class: "image"  %>
+	        <div class="field row">
+			<%= f.text_field :name, class: "name col-xs-12" %>
+	     	</div>
 
-		<%= f.text_field :name, class: "name" %>
+	        <div class="field row">
+			<%= f.text_area :description, class: "description col-xs-12" %>
+	 	    </div>
 
-		<%= f.text_area :description, class: "description" %>
+	        <div class="field row">
+			<%= f.text_field :price, class: "price col-xs-12" %>
+		    </div>
 
-		<%= f.text_field :price, class: "price" %>
+			<div class="field row">
+				<%= f.radio_button :status, true %>
+			    <%= f.label :status ,"発売中" %>
 
-		<%= f.text_field :status, class: "status" %>
+			    <%= f.radio_button :status, false %>
+			    <%= f.label :status ,"売り切れ" %>
+			</div>
 
+			<div class="field row">
+            <%= f.label :ジャンル%>
+		    <%= f.collection_select :genre_id, Genre.where(status: "true"), :id, :name, include_blank: "選択してください" %>
+            </div>
 
-		<%= f.submit %>
+            <div class="field row">
+		    <%= f.submit %>
+	     	</div>
 
-		<% end %>
-
-	</div>
-  </div>
+		    <% end %>
+	    </div>
+    </div>
 </div>

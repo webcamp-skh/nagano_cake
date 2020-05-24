@@ -1,59 +1,69 @@
 
 <div class = "container">
-     <div class="row">
-          <div class="col-xs-3">
-
-           <table class="table">
-           <thead>
-              <tr>
-                  <th>ジャンル検索</th>
-              </tr>
-           </thead>
-           <tbody>
-                  <% @genre.each do |genre| %>
-              <tr>
-                  <th><%= link_to genre_show_path(genre) do %>
-                     <%= genre.name %>
-                     <% end %>
-                  </th>
-                   <% end %>
-              </tr>
-            </tbody>
-            </table>
-          </div>
-
-        <dev class="col-xs-9">
-     		<table class="table">
-     			<h3 class="title">商品詳細</h3>
-			 <thead>
-				<tr>
-				<th></th>
-				<th>商品名</th>
-				<th>商品説明</th>
-				<th></th>
-				<th>個数選択</th>
-				<th></th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<tr>
-				  <td><%= attachment_image_tag(@item, :image_id, :fill, 50, 50, fallback: "no_image.jpeg") %></td>
-          <td><%= @item.name %></td>
-          <td><%= @item.description %></td>
-          <td><%= @item.price %>円</td>
-          <td>
-            <%= form_for @cart_item do |f| %>
-              <%= f.hidden_field :item_id, value: @item.id %>
-              <%= f.select :item_count, (1..50) %>
-              <%= f.submit "カートに入れる", class: "button btn btn-primary" %>
-            <% end %>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
+  <div class="row">
+    <div class="col-xs-5">
+      <h3 class="title">商品詳細</h3>
     </div>
+  </div>
+</div>
+
+
+<div class = "container">
+  <div class="row">
+
+    <div class="col-xs-2">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ジャンル検索</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @genre.each do |genre| %>
+          <tr>
+            <th style="border: none; background-color: white;">
+              <%= link_to genre_show_path(genre) do %>
+                <%= genre.name %>
+              <% end %>
+            </th>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-xs-3">
+      <%= attachment_image_tag(@item, :image_id, :fill, 50, 50, fallback: "no_image.jpeg") %>
+    </div>
+
+    <div class="col-xs-7">
+
+      <table class="table" style="border: none;">
+        <tbody style="border: none;">
+          <tr style="border: none;">
+            <th style="border: none; background-color: white;"></th>
+            <td style="border: none;"> <%= @item.name %></td>
+          </tr>
+          <tr style="border: none;">
+            <th style="border: none; background-color: white;"></th>
+            <td style="border: none;"><%= @item.description %></td>
+          </tr>
+          <tr style="border: none;">
+            <th style="border: none; background-color: white;"></th>
+            <td style="border: none;"><%= @item.price %>円</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <%= form_for @cart_item do |f| %>
+      <%= f.hidden_field :item_id, value: @item.id %>
+      <%= f.select :item_count, (1..50) %>
+      <%= f.submit "カートに入れる", class: "button btn btn-primary" %>
+    <% end %>
+
+
+
   </div>
 </div>
 
