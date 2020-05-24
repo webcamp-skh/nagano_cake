@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 	before_action :configure_permitted_parameters, if: :devise_controller?
-
+	before_action :set_search
 	def after_sign_in_path_for(resource)
 	    case resource
 	    when User
@@ -16,6 +16,11 @@ class ApplicationController < ActionController::Base
 		else
 		    root_path
 		end
+	 end
+
+	 def set_search
+	 	@q = Item.ransack(params["q"])
+ 		@items = @q.result
 	 end
 
 	private

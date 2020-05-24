@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   put 'users/:id/hide' => 'users#hide', as: 'users_hide'
 
   resources :items, only: [:show]
+  get 'item/search' => 'items#search', as: 'item/search'
 
   get 'genres/:id' => 'genres#show', as: 'genre_show'
 

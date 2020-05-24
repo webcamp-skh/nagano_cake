@@ -1,0 +1,15 @@
+<table>
+	<thead>
+		<tr>
+			<th>header</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @items.each do |item| %>
+		<tr>
+			<td><%= item.name %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+
