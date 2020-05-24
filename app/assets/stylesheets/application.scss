@@ -100,7 +100,7 @@ a {
 }
 
 .table > thead > tr > th, .table > tbody > tr > th, .table > tbody > tr > td, tr {
-	border: solid 1px #000;
+	border: solid 1px #000 !important;
 	vertical-align: middle;
 }
 
