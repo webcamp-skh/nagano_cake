@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   def new
     @order = Order.new
+    @address = Address.new
   end
 
   def confirm
@@ -25,9 +26,14 @@ class OrdersController < ApplicationController
       @order.ordered_address = @address.address
       @order.ordered_receiver_name = @address.receiver_name
     elsif params[:address_id] == "2"
-      @order.ordered_postal_code = params[:postal_code]
-      @order.ordered_address = params[:address]
-      @order.ordered_receiver_name = params[:receiver_name]
+      @address = current_user.addresses.new(address_params)
+      if @address.valid?
+        @order.ordered_postal_code = @address.postal_code
+        @order.ordered_address = @address.address
+        @order.ordered_receiver_name = @address.receiver_name
+      else
+        render 'new'
+      end
     end
   end
 
@@ -65,13 +71,13 @@ class OrdersController < ApplicationController
   end
 
   private
+  def address_params
+    params.permit(:postal_code, :address, :receiver_name)
+  end
+
   def order_params
     params.require(:order).permit(
       :user_id, :payment_method, :billing_amount, :ordered_postal_code, :ordered_address, :ordered_receiver_name)
-  end
-
-  def address_params
-    params.require(:address).permit(:postal_code, :address, :receiver_name)
   end
 
 end
