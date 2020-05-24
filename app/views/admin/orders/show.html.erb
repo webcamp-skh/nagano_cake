@@ -26,7 +26,15 @@
   <h4 class="sub-title col-xs-2">注文ステータス</h4>
   <div class="order-info col-xs-10">
     <%= form_with model: [:admin, @order] do |f| %>
-      <%= f.select :order_status, ["入金待ち", "入金確認", "製作中", "発送準備中", "発送済み"] %>
+      <% if @order.order_status == "入金待ち" %>
+        <%= f.select :order_status, ["入金待ち", "入金確認"] %>
+      <% elsif @order.order_status == "入金確認" %>
+        <%= f.select :order_status, ["入金確認", "製作中"] %>
+      <% elsif @order.order_status == "製作中" %>
+        <%= f.select :order_status, ["製作中", "発送準備中"] %>
+      <% else %>
+        <%= f.select :order_status, ["発送準備中", "発送済み"] %>
+      <% end %>
       <%= f.submit "更新", class: "btn btn-primary"  %>
     <% end %>
   </div>
@@ -54,7 +62,13 @@
             <td><%= (order_item.ordered_price * order_item.item_count).to_s(:delimited) %></td>
             <td>
               <%= form_with(model: [:admin, order_item]) do |f| %>
-                <%= f.select :making_status, ["着手不可", "製作待ち", "製作中", "製作完了"] %>
+                <% if order_item.making_status == "着手不可" %>
+                  <%= f.select :making_status, ["着手不可", "製作待ち"] %>
+                <% elsif order_item.making_status == "製作待ち" %>
+                  <%= f.select :making_status, ["製作待ち", "製作中"] %>
+                <% else %>
+                  <%= f.select :making_status, ["製作中", "製作完了"] %>
+                <% end %>
                 <%= f.submit "更新", class: "btn btn-primary"  %>
               <% end %>
             </td>

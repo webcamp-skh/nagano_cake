@@ -1,4 +1,4 @@
-<div class = "container">
+
    <div class="row">
    	<div class="col-xs-3">
 
@@ -24,6 +24,7 @@
 
 
 
+
         <div class="col-xs-9">
 				<h3 class="title">商品一覧</h3>
 				<!--item一覧 -->
@@ -44,10 +45,12 @@
 							<td><%= link_to item_path(item) do %>
 								<%= item.name %>
 								<% end %></td>
-							<td><%= item.price %></td>
+							<td><%= item.price %>円</td>
 							<% end %>
 						</tr>
 					</tbody>
 				</table>
+			</div>
+</div>
 
 

@@ -1,7 +1,27 @@
 
 <div class = "container">
    <div class="row">
-   	<div class="col-xs-9">
+   		<div class="col-xs-3">
+
+	   		<table class="table table-hover table-inverse">
+				 <thead>
+				 	<tr>
+						<th>ジャンル検索</th>
+					</tr>
+				 </thead>
+				 <tbody>
+					<% @genres.each do |genre| %>
+					<tr>
+						<th><%= link_to genre_show_path(genre) do %>
+							<%= genre.name %>
+							<% end %></th>
+		   		    <% end %>
+		   		    </tr>
+		   		 </tbody>
+	   		</table>
+    </div>
+     	<div class="col-xs-9">
+
 				<h3 class="title">商品一覧</h3>
 				<!--item一覧 -->
 				<table class="table table-hover table-inverse">
@@ -21,7 +41,7 @@
 							<td><%= link_to item_path(item) do %>
 								<%= item.name %>
 								<% end %></td>
-							<td><%= item.price %></td>
+							<td><%= item.price %>円</td>
 							<% end %>
 						</tr>
 					</tbody>
