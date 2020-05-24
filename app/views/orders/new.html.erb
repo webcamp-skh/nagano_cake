@@ -11,16 +11,16 @@
       <h4 class="sub-title">支払方法</h4>
       <div class="field">
         <%= f.radio_button :payment_method, "クレジットカード", checked: true %>
-        <%= f.label :payment_method, "クレジットカード", value: "クレジットカード", class: "label-size" %><br>
+        <%= f.label :payment_method, "クレジットカード", value: "クレジットカード", class: "radio-label label-size" %><br>
         <%= f.radio_button :payment_method, "銀行振込" %>
-        <%= f.label :payment_method, "銀行振込", value: "銀行振込", class: "label-size" %>
+        <%= f.label :payment_method, "銀行振込", value: "銀行振込", class: "radio-label label-size" %>
       </div>
 
       <h4 class="sub-title">お届け先</h4>
       <div class="field">
         <div class="radio-button user-address">
           <%= f.radio_button :address_id, 0, checked: true %>
-          <%= f.label :address_id, "ご自身の住所", value: 0, class: "label-size" %><br>
+          <%= f.label :address_id, "ご自身の住所", value: 0, class: "radio-label label-size" %><br>
           <div class="radio-button-content">
             <%= "#{current_user.postal_code} #{current_user.address}" %><br>
             <%= "#{current_user.last_name}#{current_user.first_name}" %>
@@ -29,7 +29,7 @@
 
         <div class="radio-button registration-address">
           <%= f.radio_button :address_id, 1 %>
-          <%= f.label :address_id, "登録済住所から選択", value: 1, class: "label-size" %><br>
+          <%= f.label :address_id, "登録済住所から選択", value: 1, class: "radio-label label-size" %><br>
           <div class="radio-button-content select-box">
             <%= f.select :address_select, options_for_select(Address.where(user_id: current_user.id).map{ |address| ["#{address.postal_code} #{address.address} #{address.receiver_name}", address[:id]] }) %>
           </div>
@@ -37,7 +37,7 @@
 
         <div class="radio-button new-address">
           <%= f.radio_button :address_id, 2 %>
-          <%= f.label :address_id, "新しいお届け先", value: 2, class: "label-size" %>
+          <%= f.label :address_id, "新しいお届け先", value: 2, class: "radio-label label-size" %>
           <div class="radio-button-content">
             <%= f.label :postal_code, "郵便番号(ハイフンなし)", class: "mini-label" %>
             <%= f.text_field :postal_code, value: @address.postal_code, class: "form-control", style: "width: 250px;" %><br>
