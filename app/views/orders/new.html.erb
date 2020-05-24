@@ -2,6 +2,8 @@
   <h3 class="title">注文情報入力</h3>
 </div>
 
+<%= render 'addresses/error_message', address: @address %>
+
 <div class="row">
   <div class="order-form">
     <%= form_with(url: orders_confirm_path, local: true) do |f| %>
@@ -29,23 +31,23 @@
           <%= f.radio_button :address_id, 1 %>
           <%= f.label :address_id, "登録済住所から選択", value: 1, class: "label-size" %><br>
           <div class="radio-button-content select-box">
-            <%= f.select :address_select, options_for_select(current_user.addresses.map{ |address| ["#{address.postal_code} #{address.address} #{address.receiver_name}", address[:id]] }) %>
+            <%= f.select :address_select, options_for_select(Address.where(user_id: current_user.id).map{ |address| ["#{address.postal_code} #{address.address} #{address.receiver_name}", address[:id]] }) %>
           </div>
         </div>
 
         <div class="radio-button new-address">
           <%= f.radio_button :address_id, 2 %>
-          <%= f.label :address_id, "新しいお届け先", value: 2, class: "label-size" %><br>
+          <%= f.label :address_id, "新しいお届け先", value: 2, class: "label-size" %>
           <div class="radio-button-content">
             <%= f.label :postal_code, "郵便番号(ハイフンなし)", class: "mini-label" %>
-            <%= f.text_field :postal_code, style: "width: 250px;" %><br>
+            <%= f.text_field :postal_code, value: @address.postal_code, class: "form-control", style: "width: 250px;" %><br>
             <%= f.label :address, "住所", class: "mini-label" %>
-            <%= f.text_field :address, style: "width: 600px;" %><br>
+            <%= f.text_field :address, value: @address.address, class: "form-control", style: "width: 600px;" %><br>
             <%= f.label :receiver_name, "宛名", class: "mini-label" %>
-            <%= f.text_field :receiver_name, style: "width: 250px;" %>
+            <%= f.text_field :receiver_name, value: @address.receiver_name, class: "form-control", style: "width: 250px;" %>
           </div>
         </div>
-
+      </div>
       <div class="actions text-center">
         <%= f.submit "確認画面へ進む", class: "btn-lg btn-primary" %>
       </div>
@@ -53,4 +55,3 @@
     <% end %>
   </div>
 </div>
-

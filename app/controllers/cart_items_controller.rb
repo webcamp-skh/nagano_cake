@@ -5,10 +5,16 @@ class CartItemsController < ApplicationController
   end
 
   def create
-  	  @cart_item = CartItem.new(cart_item_params)
-  	  @cart_item.user_id = current_user.id
-  	  @cart_item.save
-  	  redirect_to cart_items_path
+      @cart_item = CartItem.new(cart_item_params)
+      items = current_user.cart_items.pluck(:item_id)
+      if items.include?(@cart_item.item_id)
+        having_cart_item = CartItem.find_by(user_id: current_user.id, item_id: @cart_item.item_id)
+        having_cart_item.update(item_count: having_cart_item.item_count + @cart_item.item_count)
+      else
+        @cart_item.user_id = current_user.id
+        @cart_item.save
+      end
+      redirect_to cart_items_path
   end
 
   def destroy

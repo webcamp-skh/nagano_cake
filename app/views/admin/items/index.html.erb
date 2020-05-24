@@ -4,7 +4,7 @@
 
 
         <div class="col-xs-9">
-				<h2>商品一覧</h2>
+				<h3 class="title">商品一覧</h3>
 
 				<!--item一覧 -->
 				<table class="table table-hover table-inverse">
@@ -16,7 +16,6 @@
 							<th>税抜き価格</th>
 							<th>ジャンル</th>
 							<th>販売ステータス</th>
-							<th colspan="3"></th>
 						</tr>
 					</thead>
 
@@ -24,10 +23,11 @@
 　　　　　　　　　　　　　　<% @items.each do |item| %>
 						<tr>
 							<td><%= item.id %></td>
-							<td>
+							<td><%= link_to admin_item_path(item) do %>
 								<%= item.name %>
+								<% end %>
 							</td>
-							<td><%= item.price %></td>
+							<td><%= item.price %>円</td>
 							<td><%= item.genre.name %></td>
 							<td><% if item.status ==true %>
 				             <p>発売中</p>
