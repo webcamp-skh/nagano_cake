@@ -5,5 +5,4 @@ class Item < ApplicationRecord
   has_many :order_items
   belongs_to :genre
 
-
 end

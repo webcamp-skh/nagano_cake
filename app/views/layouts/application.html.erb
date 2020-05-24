@@ -37,8 +37,14 @@
             <% end %>
           </ul>
         </nav>
+
+        <div class="search-form">
+          <%= search_form_for @q, url: item_search_path do |f| %>
+            <%= f.text_field :name_cont, placeholder: 'Search'%>
+            <%= f.submit "Search" %>
+          <% end %>
+        </div>
       </div>
-      <hr>
     </header>
 
     <div class="container">

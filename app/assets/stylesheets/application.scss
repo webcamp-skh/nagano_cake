@@ -220,9 +220,16 @@ select {
 	margin-bottom: 30px;
 	font-size: 110%;
 }
+.client table,.table > thead > tr > th, .table > tbody > tr > th, .table > tbody > tr > td, tr {
+	border: none;
+	vertical-align: none;
+}
 .client th{
 	padding: 10px 30px 10px 0px;
+	background-color: #fff;
+
 }
+
 .user-true{
 	background-color: #99ccff;
 	display: inline-block;
@@ -233,7 +240,7 @@ select {
 	margin-left: 10px;
 }
 .user-false{
-	background-color: #FF6633;
+	background-color: #FF3333;
 	display: inline-block;
 	border: solid 1px #000;
 	border-radius: 5px;

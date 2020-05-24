@@ -12,6 +12,8 @@ class ItemsController < ApplicationController
       @genre = Genre.where(status: true)
   end
 
+  def search
+  end
 
   private
   def item_params
