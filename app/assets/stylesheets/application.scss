@@ -19,19 +19,29 @@
 /* ヘッダ */
 header {
 	background-color: #333;
-	padding: 25px 0;
 	margin-bottom: 50px;
 }
 
-header span {
-  font-size: 35px;
-  color: #DDD;
-  border: solid 1.5px #DDD;
-  padding: 5px 40px;
+.header-top {
+  padding: 10px 0 15px 0;
+}
+
+.header-logo {
+  height: 90px;
+  padding-top: 34px;
+}
+
+.logo {
+  width: 90%;
 }
 
 header ul {
   list-style: none;
+}
+
+.nav > ul > li > a:hover {
+  color: #A4C6FF;
+  text-decoration: none;
 }
 
 .nav-pills li {
@@ -39,8 +49,18 @@ header ul {
 	vertical-align: middle;
 }
 
-.header-text {
+.search-form {
+  padding: 15px 30px 17px 0;
+}
+
+.welcom-message {
 	color: #FFF;
+}
+
+.header-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
 }
 
 /* フッタ */
@@ -60,7 +80,8 @@ footer {
 
 /* 共通 */
 .main-body {
-	min-height: 500px;
+	min-height: 700px;
+  padding-top: 130px
 }
 
 .title{
@@ -213,20 +234,9 @@ input[type="radio"] {
 
 
 /* ユーザ画面 */
-
-
-
 .kotira {
 	padding-left: 10px;
 	padding-right: 10px;
-}
-
-.row{
-	margin-left: 30px;
-}
-
-.name{
-
 }
 
 .login-title{
