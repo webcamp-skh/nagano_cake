@@ -38,5 +38,6 @@ Rails.application.routes.draw do
     get 'orders/today_index' => 'orders#today_index'
     resources :orders, only:[:index, :show, :update]
     resources :order_items, only: [:update]
+    get "search" => "search#search"
   end
 end
