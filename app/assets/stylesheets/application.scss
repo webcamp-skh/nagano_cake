@@ -132,11 +132,30 @@ select {
 	display: inline-block;
 }
 
+.alert-errors {
+	color: red;
+	margin: 30px 50px;
+	p {
+		font-size: 18px;
+	}
+	ul {
+		font-size: 15px;
+	}
+}
+
+#notice, #success {
+	color: green;
+	margin-left: 50px
+}
+
+#alert, #error {
+	color: red;
+	margin-left: 50px
+}
+
 
 /* ユーザ画面 */
-.alert {
-	color: red;
-}
+
 
 
 .kotira {
