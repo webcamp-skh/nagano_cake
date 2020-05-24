@@ -1,11 +1,15 @@
 class Admin::OrderItemsController < ApplicationController
   def update
     @order_item = OrderItem.find(params[:id])
-    @order_item.update(order_item_params)
-    if @order_item.making_status == "製作中"
-      @order_item.order.update(order_status: "製作中")
-    elsif @order_item.making_status == "製作完了"
-      @order_item.order.update(order_status: "発送準備中")
+    if @order_item.update(order_item_params)
+      flash[:notice] = "製作ステータスが更新されました。"
+      if @order_item.making_status == "製作中"
+        @order_item.order.update(order_status: "製作中")
+        flash[:success] = "注文ステータスが更新されました。"
+      elsif @order_item.making_status == "製作完了"
+        @order_item.order.update(order_status: "発送準備中")
+        flash[:success] = "注文ステータスが更新されました。"
+      end
     end
     redirect_to admin_order_path(@order_item.order)
   end
