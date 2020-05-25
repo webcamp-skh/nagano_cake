@@ -1,5 +1,8 @@
 class Admin::OrdersController < ApplicationController
-	def top
+	before_action :order_search
+  before_action :authenticate_admin!
+
+  def top
     range = Date.today.beginning_of_day..Date.today.end_of_day
     @orders = Order.where(created_at: range)
     #where(created_at: 1.day.ago.all_day)
@@ -7,6 +10,8 @@ class Admin::OrdersController < ApplicationController
 
   def index
     @orders = Order.all
+    @o = Order.ransack(params[:q])
+    @search_orders = @o.result
   end
 
   def user_index
@@ -22,6 +27,11 @@ class Admin::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+  end
+
+  def order_search
+    @o = Order.ransack(params[:q])
+    @search_orders = @o.result
   end
 
   def update
