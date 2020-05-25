@@ -4,7 +4,8 @@
 		<%= render 'layouts/error_message', model: @address %>
 		<%= render 'form', user: @user, addresses: @addresses %>
 
-		<table class="table">
+		<% if @addresses %>
+		<table class="table" style="margin-top: 50px;">
 			<thead>
 				<tr>
 					<th>郵便番号</th>
@@ -23,10 +24,12 @@
 						<td><%= link_to "編集する",edit_user_address_path(@user,address), class: "button btn btn-primary" %>
 						    <%= link_to "削除する", user_address_path(@user,address), method: :delete, "data-confirm" => "本当に削除しますか？", class: "button btn btn-danger" %>
 						</td>
-						</div>
 					</tr>
 				<% end %>
 			</tbody>
 		</table>
+		<% else %>
+			<p style="margin-top: 100px;"><span class="glyphicon glyphicon-pencil" aria-hidden="true">新規配送先は登録されていません。</span></p>
+		<% end %>
 	</div>
 </div>

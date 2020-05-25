@@ -17,6 +17,7 @@
             <%= link_to root_path do %>
               <%= image_tag "logo.png", class: "logo" %>
             <% end %>
+
           </div>
           <div class="col-xs-9">
             <div class="row header-top">
@@ -69,10 +70,15 @@
               <% end %>
             </div>
           </div>
+
         </div>
       </div>
     </header>
-
+       <%= form_tag(admin_search_path, method: :get) do %>
+              <%= text_field_tag :search %>
+              <%= select_tag(:option, options_for_select([["User","1"],["Item","2"],["Order","3"]])) %>
+              <%= submit_tag "検索" %>
+    <% end %>
     <div class="main-body container">
       <p class="flash" id="notice"><%= flash[:notice] %></p>
       <p class="flash" id="success"><%= flash[:success] %></p>
