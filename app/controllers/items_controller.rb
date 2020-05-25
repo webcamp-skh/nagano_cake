@@ -3,13 +3,13 @@ class ItemsController < ApplicationController
   def index
   	  @item = Item.new
   	  @items = Item.all
-      @genre = Genre.where(status: true)
+      @genres = Genre.where(status: true)
   end
 
   def show
   	  @item = Item.find(params[:id])
       @cart_item = CartItem.new
-      @genre = Genre.where(status: true)
+      @genres = Genre.where(status: true)
   end
 
   def search
