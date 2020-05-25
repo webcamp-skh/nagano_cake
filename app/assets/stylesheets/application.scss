@@ -106,7 +106,7 @@ a {
 	text-decoration: underline;
 }
 
-.btn {
+.btn, .btn-lg {
 	text-decoration: none;
 }
 
@@ -491,7 +491,13 @@ input[type="radio"] {
   margin-right: 30px;
 }
 
+.cart-destroy {
+  margin-bottom: 20px;
+}
 
+.no-cart h3 {
+  margin-bottom: 50px;
+}
 
 
 
