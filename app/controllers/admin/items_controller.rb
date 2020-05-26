@@ -1,8 +1,9 @@
 class Admin::ItemsController < ApplicationController
+	before_action :authenticate_admin!
 
 	def new
 		@item = Item.new
-
+		@i = Item.ransack(params[:q])
 	end
 
 	def index
@@ -29,6 +30,16 @@ class Admin::ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 		@item.update(item_params)
 		redirect_to admin_item_path(@item)
+	end
+
+	def search
+		@i = Item.ransack(params[:q])
+		@items = @i.result
+	end
+
+	def set_search
+		@i = Item.ransack(params[:q])
+		@items = @i.result
 	end
 
 

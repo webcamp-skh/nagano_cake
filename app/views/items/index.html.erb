@@ -1,42 +1,11 @@
+<div class="row">
+	<div class="col-xs-3">
+		<%= render 'genres/sidebar', genres: @genres %>
+	</div>
 
-    <div class="row">
-   	    <div class="col-xs-3">
-
-	   		<table class="table table-hover table-inverse">
-				 <thead>
-				 	<tr>
-						<th>ジャンル検索</th>
-					</tr>
-				 </thead>
-				 <tbody>
-					<% @genre.each do |genre| %>
-					<tr>
-						<th style="border: none; background-color: white;"><%= link_to genre_show_path(genre) do %>
-							<%= genre.name %>
-							<% end %></th>
-		   		    <% end %>
-		   		    </tr>
-		   		 </tbody>
-	   		</table>
-        </div>
-
-        <div class="col-xs-9">
-			<h3 class="title">商品一覧</h3>
-		    <div class="row">
-
-				<% @items.each do |item| %>
-
-					<div class="col-xs-3">
-						<div class="itembox">
-							<%= link_to item_path(item) do %>
-							<div class="image"><%= attachment_image_tag(item, :image, size: "80x80", fallback: "no_image.jpg") %></div>
-							<div class="itemname"><%= item.name %></div>
-							<div class="itemprice"><%= item.price %>円</div>
-							<% end %>
-						</div>
-					</div>
-				<% end %>
-			</div>
-		</div>
-    </div>
+	<div class="col-xs-9">
+		<h3 class="title">商品一覧<span>（全<%= @items.count %>件）</span></h3>
+		<%= render 'item_index' , items: @items %>
+	</div>
+</div>
 

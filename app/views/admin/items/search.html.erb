@@ -1,0 +1,19 @@
+<div class="row">
+	<div class="admin-search">
+		<%= search_form_for @i, url: admin_item_search_path do |f| %>
+		<%= f.text_field :name_cont, placeholder: '商品名を入力'%>
+		<%= f.select :status_eq, {'発売中' => true, '売り切れ' => false}, include_blank: "販売ステータス" %>
+		<%= f.submit "Search" %>
+		<% end %>
+	</div>
+</div>
+<div class = "container">
+    <div class="row">
+	    <div class="col-xs-9">
+           <h3 class="title">商品一覧</h3>
+
+		   <!--item一覧 -->
+		   	<%= render 'index', items: @items %>
+		</div>
+    </div>
+</div>

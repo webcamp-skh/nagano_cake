@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     root 'orders#top'
     resources :users, only: [:index, :show, :edit, :update]
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
+    get 'item/search' => 'items#search'
     resources :genres, only: [:index, :create, :edit, :update]
     get 'orders/user_index' => 'orders#user_index'
     get 'orders/today_index' => 'orders#today_index'

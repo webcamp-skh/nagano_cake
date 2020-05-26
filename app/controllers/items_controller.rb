@@ -4,12 +4,13 @@ class ItemsController < ApplicationController
   	  @item = Item.new
   	  @items = Item.page(params[:page]).reverse_order
       @genre = Genre.where(status: true)
+
   end
 
   def show
   	  @item = Item.find(params[:id])
       @cart_item = CartItem.new
-      @genre = Genre.where(status: true)
+      @genres = Genre.where(status: true)
   end
 
   def search
