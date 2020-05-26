@@ -1,8 +1,11 @@
 # NAGANO CAKE
+長野県のケーキ屋さんのECサイト
 # サイトテーマ
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ケーキ、クッキーやお菓子などの通販サイト
+#ターゲットユーザー
+デザート好きな人
+甘いものが好きな人
+男女　20~30代
 
 Things you may want to cover:
 
