@@ -13,7 +13,7 @@
   <h3 class="title">注文履歴一覧</h3>
 </div>
 
-<% if @search_orders %>
+<% if @search_orders.count == 0 %>
   <%= render 'index', content: @search_orders %>
 <% else %>
   <%= render 'index', content: @orders %>
