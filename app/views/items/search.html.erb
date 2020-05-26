@@ -1,15 +1,10 @@
-<table>
-	<thead>
-		<tr>
-			<th>item</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @items.each do |item| %>
-		<tr>
-			<td><%= item.name %></td>
-		</tr>
-		<% end %>
-	</tbody>
-</table>
+<div class="row">
+	<div class="col-xs-3">
+		<%= render 'genres/sidebar', genres: @genres %>
+	</div>
 
+	<div class="col-xs-9">
+		<h3 class="title">検索結果<span>（全<%= @items.count %>件）</span></h3>
+		<%= render 'item_index' , items: @items %>
+	</div>
+</div>
