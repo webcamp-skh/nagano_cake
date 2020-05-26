@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     post 'admin/sign_in' => 'admins/sessions#create', as: 'admin_session'
     delete 'admin/sign_out' => 'admins/sessions#destroy', as: 'destroy_admin_session'
   end
-  root 'items#index'
+
+  root 'home#top'
   get 'home/about' => 'home#about'
 
   devise_for :users
@@ -16,8 +17,8 @@ Rails.application.routes.draw do
   get 'users/:id/quit' => 'users#quit', as: 'quit'
   put 'users/:id/hide' => 'users#hide', as: 'users_hide'
 
-  resources :items, only: [:show]
   get 'item/search' => 'items#search', as: 'item/search'
+  resources :items, only: [:index, :show]
 
   get 'genres/:id' => 'genres#show', as: 'genre_show'
 
