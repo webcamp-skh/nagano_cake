@@ -2,8 +2,9 @@ class ItemsController < ApplicationController
 
   def index
   	  @item = Item.new
-  	  @items = Item.all
+  	  @items = Item.page(params[:page]).reverse_order
       @genres = Genre.where(status: true)
+
   end
 
   def show

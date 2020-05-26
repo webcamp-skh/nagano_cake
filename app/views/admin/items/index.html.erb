@@ -10,10 +10,10 @@
 <div class = "container">
     <div class="row">
 	    <div class="col-xs-9">
-           <h3 class="title">商品一覧</h3>
 
-		   <!--item一覧 -->
+
 		   	<%= render 'index', items: @items %>
-		</div>
+        </div>
     </div>
+    <%= link_to "商品登録", new_admin_item_path, class: "btn btn-lg btn-primary" %>
 </div>

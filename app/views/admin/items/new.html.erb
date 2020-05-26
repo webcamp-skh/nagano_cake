@@ -28,13 +28,11 @@
 			<%= f.attachment_field :image %>
 			</div>
 
-			<div class="field row">
 			<%= f.radio_button :status, true %>
-		    <%= f.label :status ,"発売中" %>
+		<%= f.label :status ,"有効" %>
 
-		    <%= f.radio_button :status, false %>
-		    <%= f.label :status ,"売り切れ" %>
-			</div>
+		<%= f.radio_button :status, false %>
+		<%= f.label :status ,"無効" %>
 
 			<div class="actions row">
 			<%= f.submit class: "btn btn-primary" %>
