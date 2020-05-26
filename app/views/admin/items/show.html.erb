@@ -1,18 +1,16 @@
 
-<div class="container">
-　　 <div class="row">
-       <div class="col-xs-4">
+<div class="row">
+    <div class="col-xs-">
 　　　　<h3 class="title">商品詳細</h3>
-       </div>
     </div>
-</div>
 
-
-    <div class="container">
-　　     <div class="row">
-		         <div class="col-xs-3">
-			　　　　<%= attachment_image_tag(@item, :image, :fill, 50, 50, fallback: "no_image.jpeg") %>
-				 </div>
+    <div class="col-xs-9">
+    	<div class="item-info row">
+    		<div class="col-xs-6">
+    			<div class="item-info-image">
+    				<%= attachment_image_tag(@item, :image, size: '400x300', fallback: "no_image.jpeg") %>
+				</div>
+			</div>
 
 		       　<div class="col-xs-5">
 		       	　<table class="table" style="border: none;">
@@ -49,7 +47,6 @@
 		       </div>
 		    </div>
 		</div>
-	</div>
 </div>
 
 
