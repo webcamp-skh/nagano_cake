@@ -1,3 +1,77 @@
-<h1>Home#top</h1>
-<p>Find me in app/views/home/top.html.erb</p>
+<div class="row">
+  <div class="col-xs-3">
+    <%= render 'genres/sidebar', genres: @genres %>
+  </div>
 
+  <div class="col-xs-9">
+    <div class="back-image">
+      <div class="welcom-text">
+        <p>
+          ようこそ、NaganoCakeへ！<br>
+          このサイトは、ケーキ販売のECサイトになります。<br>
+          会員でない方も商品の閲覧はできますが、<br>
+          購入には会員登録が必要になります。
+        </p>
+      </div>
+    </div>
+
+    <div class="top-item-index">
+      <h3 class="title">オススメ商品</h3>
+
+      <div class="row">
+        <div class="col-xs-3">
+          <div class="item-box">
+            <%= link_to item_path(@item1) do %>
+              <div class="item-image">
+                <%= attachment_image_tag(@item1, :image, size: '180x120', fallback: "no_image.jpg") %>
+              </div>
+              <div class="item-name text-center"><%= @item1.name %></div>
+              <div class="item-price text-center">¥<%= (@item1.price * 110 / 100).to_s(:delimited) %>(税込)</div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="col-xs-3">
+          <div class="item-box">
+            <%= link_to item_path(@item2) do %>
+              <div class="item-image">
+                <%= attachment_image_tag(@item2, :image, size: '180x120', fallback: "no_image.jpg") %>
+              </div>
+              <div class="item-name text-center"><%= @item2.name %></div>
+              <div class="item-price text-center">¥<%= (@item2.price * 110 / 100).to_s(:delimited) %>(税込)</div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="col-xs-3">
+          <div class="item-box">
+            <%= link_to item_path(@item3) do %>
+              <div class="item-image">
+                <%= attachment_image_tag(@item3, :image, size: '180x120', fallback: "no_image.jpg") %>
+              </div>
+              <div class="item-name text-center"><%= @item3.name %></div>
+              <div class="item-price text-center">¥<%= (@item3.price * 110 / 100).to_s(:delimited) %>(税込)</div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="col-xs-3">
+          <div class="item-box">
+            <%= link_to item_path(@item4) do %>
+              <div class="item-image">
+                <%= attachment_image_tag(@item4, :image, size: '180x120', fallback: "no_image.jpg") %>
+              </div>
+              <div class="item-name text-center"><%= @item4.name %></div>
+              <div class="item-price text-center">¥<%= (@item4.price * 110 / 100).to_s(:delimited) %>(税込)</div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="items-link text-right">
+        <%= link_to "もっと見る>", items_path %>
+      </div>
+
+    </div>
+  </div>
+</div>

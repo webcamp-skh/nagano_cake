@@ -96,11 +96,6 @@ footer {
 	font-weight: bold;
 }
 
-input {
-	border: solid 1px #000;
-	border-radius: 4px;
-}
-
 a {
 	color: #333;
 	text-decoration: underline;
@@ -233,6 +228,46 @@ input[type="radio"] {
 }
 .admin-search{
 	text-align: center;
+}
+
+
+/* トップ */
+.back-image {
+  position: relative;
+  width: 90%;
+  height: 100%;
+  background-image: url(chocolate-marshmallow-cake.jpg);
+  background-size: cover;
+  background-position: center;
+  margin: 30px 0;
+}
+
+.back-image::before{
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
+}
+
+.welcom-text {
+  height: 350px;
+  padding-top: 130px;
+}
+
+.welcom-text p {
+  position: absolute;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  font-size: 1.2em;
+  margin: 0 auto;
+}
+
+.items-link {
+  margin-right: 30px;
 }
 
 
@@ -502,5 +537,8 @@ input[type="radio"] {
   margin-bottom: 50px;
 }
 
-
+#item_image {
+  margin-top: 30px;
+  font-size: 16px;
+}
 

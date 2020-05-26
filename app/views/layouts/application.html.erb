@@ -35,7 +35,7 @@
                       <%= link_to user_path(current_user), class: "header-link" do %><i class="fas fa-user"></i> マイページ<% end %>
                     </li>
                     <li>
-                      <%= link_to root_path, class: "header-link" do %><i class="fas fa-birthday-cake"></i> 商品一覧<% end %>
+                      <%= link_to items_path, class: "header-link" do %><i class="fas fa-birthday-cake"></i> 商品一覧<% end %>
                     </li>
                     <li>
                       <%= link_to cart_items_path, class: "header-link" do %><i class="fas fa-shopping-cart"></i> カート<% end %>
@@ -54,7 +54,7 @@
                       <%= link_to home_about_path, class: "header-link" do %><i class="fas fa-store-alt"></i> 店舗情報<% end %>
                     </li>
                     <li>
-                      <%= link_to root_path, class: "header-link" do %><i class="fas fa-birthday-cake"></i> 商品一覧<% end %>
+                      <%= link_to items_path, class: "header-link" do %><i class="fas fa-birthday-cake"></i> 商品一覧<% end %>
                     </li>
                     <li>
                       <%= link_to "新規登録", new_user_registration_path, class: "header-link" %>

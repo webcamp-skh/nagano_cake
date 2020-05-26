@@ -1,43 +1,49 @@
+<div class="row">
+  <h3 class="title">商品新規登録</h3>
+</div>
 
+<div class="row">
+  <div class="item-form">
+    <%= form_for([:admin, @item]) do |f| %>
 
-         <h3 class="title">商品登録</h3>
-         <%= form_for([:admin, @item]) do |f| %>
+      <div class="col-xs-5">
+        <div class="field">
+          <%= attachment_image_tag(@item, :image, size: '400x300', fallback: "no_image.jpg") %> <!-- ここに画像表示させる -->
+          <%= f.attachment_field :image %>
+        </div>
+      </div>
 
-			<div class="field row">
-			<%= f.label :商品名 %>
-			<%= f.text_field :name, class: "col-xs-12" %>
-			</div>
+      <div class="col-xs-6">
+        <div class="field">
+          <%= f.label :name, "商品名", style: "width: 110px;" %>
+          <%= f.text_field :name, class: "form-control", style: "width: 300px;" %>
+        </div>
 
-			<div class="field row">
-			<%= f.label :商品説明 %>
-			<%= f.text_field :description, class: "col-xs-12" %>
-			</div>
+        <div class="field">
+          <%= f.label :description, "商品説明", style: "width: 110px;" %>
+          <%= f.text_area :description, class: "form-control", rows: 7, style: "width: 300px;" %>
+        </div>
 
-			<div class="field row">
-			<%= f.label :価格%>
-			<%= f.text_field :price, class: "col-xs-12"  %>
-			</div>
+        <div class="field">
+          <%= f.label :genre_id, "ジャンル", style: "width: 110px;" %>
+          <%= f.collection_select :genre_id, Genre.where(status: "true"), :id, :name, include_blank: "選択してください" %>
+        </div>
 
-            <div class="field row">
-            <%= f.label :ジャンル%>
-		    <%= f.collection_select :genre_id, Genre.where(status: "true"), :id, :name, include_blank: "選択してください" %>
-            </div>
+        <div class="field">
+          <%= f.label :price, "価格", style: "width: 110px;" %>
+          <%= f.text_field :price, class: "form-control", style: "width: 300px;" %>
+        </div>
 
-			<div class="field row">
-			<%= f.label :画像 %>
-			<%= f.attachment_field :image %>
-			</div>
+        <div class="field">
+          <%= f.label :status, "販売ステータス", style: "width: 110px;" %>
+          <%= f.select :status, [["販売中", true], ["売切れ", false]] %>
+        </div>
 
-			<%= f.radio_button :status, true %>
-		<%= f.label :status ,"有効" %>
+        <div class="actions text-right">
+          <%= f.submit "新規登録", class: "btn-lg btn-primary" %>
+        </div>
+      </div>
 
-		<%= f.radio_button :status, false %>
-		<%= f.label :status ,"無効" %>
-
-			<div class="actions row">
-			<%= f.submit class: "btn btn-primary" %>
-			</div>
-
-		<% end %>
-	    </p>
-	    </div>
+    <% end %>
+  </div>
+</div>
