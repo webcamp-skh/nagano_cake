@@ -23,6 +23,7 @@ class Admin::ItemsController < ApplicationController
 	def create
 		@item = Item.new(item_params)
     if @item.save
+    	flash[:notice] = "新しく商品を追加しました。"
     	redirect_to admin_items_path
     else
     	render 'new'
@@ -33,6 +34,7 @@ class Admin::ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 		@genre = @item.genre
 		if @item.update(item_params)
+			flash[:notice] = "商品情報を更新しました。"
 			redirect_to admin_item_path(@item)
 		else
 			render 'edit'

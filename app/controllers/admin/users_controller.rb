@@ -4,7 +4,7 @@ class Admin::UsersController < ApplicationController
 	def index
 		@users = User.page(params[:page])
 		@u = User.ransack(params[:q])
-		@search_users = @u.result.page(params[:page])
+		@users = @u.result.page(params[:page])
 	end
 
 	def show
@@ -19,11 +19,6 @@ class Admin::UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@user.update(user_params)
 		redirect_to admin_user_path(@user)
-	end
-
-	def set_serch
-		@u = User.ransack(params[:q])
-		@search_users = @u.result
 	end
 
 	private

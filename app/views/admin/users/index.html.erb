@@ -2,8 +2,7 @@
 	<div class="admin-search">
 		<%= search_form_for @u, url: admin_users_path do |f| %>
 		<%= f.text_field :last_name_or_first_name_cont, placeholder: '名前を入力'%>
-		<%= f.check_box :status_true, {}, check_value = "true", uncheck_value = "" %>有効/
-		<%= f.check_box :status_false, {}, check_value = "true", uncheck_value = "" %>退会
+		<%= f.select :status_eq, {'有効' => true, '退会' => false}, include_blank: "会員ステータス" %>
 		<%= f.submit "Search" %>
 		<% end %>
 	</div>
@@ -13,8 +12,10 @@
 		<h3 class="title">会員一覧</h3>
 	</div>
 	<div class="row">
-		<%if @search_users %>
-		 	<%= render 'index', users: @search_users %>
+		<% if @users.count == 0 %>
+			<div class="text-center">
+		    <h3>検索に一致するものはありませんでした。</h3>
+		  </div>
 		<% else %>
 			<%= render 'index', users: @users %>
 		<% end %>
