@@ -13,10 +13,12 @@
   <h3 class="title">注文履歴一覧</h3>
 </div>
 
+
 <% if @orders.count == 0 %>
   <div class="text-center">
     <h3>注文履歴はありません。</h3>
   </div>
+
 
 <% else %>
   <%= render 'index', content: @orders %>

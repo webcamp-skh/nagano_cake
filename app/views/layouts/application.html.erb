@@ -14,8 +14,14 @@
       <div class="container">
         <div class="row">
           <div class="header-logo col-xs-3">
-            <%= link_to root_path do %>
-              <%= image_tag "logo.png", class: "logo" %>
+            <% unless admin_signed_in? %>
+              <%= link_to root_path do %>
+                <%= image_tag "logo.png", class: "logo" %>
+              <% end %>
+            <% else %>
+              <%= link_to admin_root_path do %>
+                <%= image_tag "logo.png", class: "logo" %>
+              <% end %>
             <% end %>
 
           </div>
@@ -65,7 +71,7 @@
           <div class="row header-bottom">
             <div class="search-form text-right">
               <%= search_form_for @q, url: item_search_path do |f| %>
-                <%= f.text_field :name_cont, placeholder: 'Search'%>
+                <%= f.text_field :name_cont, placeholder: '商品名検索'%>
                 <%= f.submit "Search" %>
               <% end %>
             </div>
