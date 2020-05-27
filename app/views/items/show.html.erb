@@ -20,6 +20,7 @@
         <div class="item-info-price">
           <h4><%= "¥#{(@item.price * 110 / 100).to_s(:delimited)}" %><span>（税込）</span></h4>
         </div>
+        <%= rating_for @item, 'speed' %>
       </div>
     </div>
     <div class="item-count-form text-right">
@@ -29,6 +30,7 @@
         <%= f.select :item_count, (1..50), class: "item-count-select" %>
         <%= f.submit "カートに入れる", class: "btn btn-primary" %>
       <% end %>
+      <%= rating_for @item, 'speed', disable_after_rate: false, enable_half: true %>
     </div>
   </div>
 

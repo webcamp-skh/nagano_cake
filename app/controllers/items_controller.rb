@@ -13,6 +13,13 @@ class ItemsController < ApplicationController
       @genres = Genre.where(status: true)
   end
 
+  def commment
+      @item = Item.find(params[:id])
+      @comment = Comment.find(params[:id])
+      @comments = Comment.new
+  end
+
+
   def search
   end
 

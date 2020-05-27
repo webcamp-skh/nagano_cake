@@ -3,8 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  ratyrate_rater # 追加
 
   has_many :addresses, dependent: :destroy
+  has_many :comments,dependent: :destroy
   has_many :cart_items, dependent: :destroy
   has_many :orders
 
