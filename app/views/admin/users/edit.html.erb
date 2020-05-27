@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<h3 class="title"><%= @user.last_name %>　<%= @user.first_name %>さんの会員情報編集</h3>
+		<h3 class="title"><%= @user.last_name %><%= @user.first_name %>さんの会員情報編集</h3>
 
 		<%= form_for [:admin,@user] do |f| %>
 			<div class="form-horizontal">
@@ -56,11 +56,11 @@
 		    		<label class="col-xs-2">会員ステータス</label>
 		    		<div class="col-xs-1">
 		    			<%= f.radio_button :status, true%>
-		    			<%= f.label :status,"有効", value:"true" %>
+		    			<%= f.label :status,"有効", value: true, class: "radio-label label-size" %>
 		    		</div>
 		    		<div class="col-xs-2">
 		    			<%= f.radio_button :status, false %>
-		    			<%= f.label :status, "退会済み", value:"false" %>
+		    			<%= f.label :status, "退会済み", value: false, class: "radio-label label-size" %>
 		    		</div>
 		    	</div>
 
