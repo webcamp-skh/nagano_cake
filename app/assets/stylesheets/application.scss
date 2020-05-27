@@ -107,9 +107,9 @@ a {
 }
 
 .btn-primary {
+  background-color: #333;
 	padding-left: 25px;
 	padding-right: 25px;
-	background-color: #333;
 }
 
 .btn-success{
@@ -557,5 +557,20 @@ input[type="radio"] {
   padding-bottom: 20px;
 }
 
+/* ジャンル */
+.genre-form {
+  margin: 20px 0 50px 20px;
+}
 
+#genre_name.form-control {
+  margin-right: 30px;
+}
+
+.left-space {
+  margin-left: 30px;
+}
+
+.new-item-link {
+  margin-bottom: 10px;
+}
 
