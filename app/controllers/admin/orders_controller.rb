@@ -10,8 +10,6 @@ class Admin::OrdersController < ApplicationController
 
   def index
     @orders = Order.all
-    @o = Order.ransack(params[:q])
-    @search_orders = @o.result
   end
 
   def user_index
@@ -29,11 +27,6 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 
-  def order_search
-    @o = Order.ransack(params[:q])
-    @search_orders = @o.result
-  end
-
   def update
     @order = Order.find(params[:id])
     if @order.update(order_params)
@@ -44,6 +37,11 @@ class Admin::OrdersController < ApplicationController
       end
     end
     redirect_to admin_order_path(@order)
+  end
+
+  def order_search
+    @o = Order.ransack(params[:q])
+    @orders = @o.result
   end
 
   private

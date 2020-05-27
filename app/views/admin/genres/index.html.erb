@@ -1,47 +1,42 @@
-<div class = "container">
-  <div class="row">
-    <h3 class="title">ジャンル一覧・追加</h3>
-	<%= form_for [:admin,@genre] do |f| %>
+<div class="row">
+  <h3 class="title">ジャンル一覧・追加</h3>
+</div>
 
-		<%= f.text_field :name, class: "col-xs-5" %>
+<div class="row">
+  <div class="genre-form">
+		<%= form_for [:admin, @genre] do |f| %>
+			<%= f.label :name, "ジャンル" %>
+			<%= f.text_field :name, class: "form-control", style: "width: 250px;" %>
+			<%= f.radio_button :status, true, checked: true %>
+			<%= f.label :status, "有効", value: true, class: "radio-label label-size" %>
+			<%= f.radio_button :status, false %>
+			<%= f.label :status, "無効", value: false, class: "radio-label label-size" %>
+			<%= f.submit "追加", class: "left-space btn btn-primary" %>
+		<% end %>
+	</div>
 
-		<%= f.radio_button :status, true %>
-		<%= f.label :status ,"有効" %>
-
-		<%= f.radio_button :status, false %>
-		<%= f.label :status ,"無効" %>
-
-		<%= f.submit "追加", class: "btn btn-primary" %>
-
-	<% end %>
-
-
-  	 <div class="col-xs-3">
-  	 	<table class="table table-hover table-inverse">
-  	 		<thead>
+	<div class="col-xs-4">
+		<table class="table">
+			<thead>
 				<tr>
 					<th>ジャンル</th>
 					<th>状態</th>
-					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<% @genres.each do |genre| %>
-				<tr>
-					<th><%= genre.name %></th>
-					<th><% if genre.status == true %>
-				    <p>有効</p>
-				    <% else %>
-				    <p>無効</p>
-				    <% end %></th>
-				    <th><%= link_to "edit",edit_admin_genre_path(genre), class: "btn-sm btn-success" %></th>
-
-			    <% end %>
-			    </tr>
+					<tr>
+						<td><%= genre.name %></td>
+						<% if genre.status == true %>
+							<td>有効 <%= link_to "編集する", edit_admin_genre_path(genre), class: "btn btn-default" %></td>
+						<% else %>
+							<td>無効 <%= link_to "編集する", edit_admin_genre_path(genre), class: "btn btn-danger" %></td>
+						<% end %>
+					</tr>
+				<% end %>
 			</tbody>
 		</table>
-    </div>
-  </div>
-</div>
+	</div>
 
+</div>
 
