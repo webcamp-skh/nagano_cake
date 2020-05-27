@@ -18,3 +18,13 @@ ja:
         email: メールアドレス
         password: パスワード
         encrypted_password: パスワード
+      item:
+        name: 商品名
+        genre: ジャンル名
+        description: 商品説明
+        image_id: 商品画像
+        status: 販売ステータス
+        price: 税抜価格
+      genre:
+        name: ジャンル名
+        status: ジャンルの有効性

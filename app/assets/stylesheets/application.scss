@@ -209,7 +209,7 @@ input[type="radio"] {
 
 .alert-errors, #error_explanation {
 	color: red;
-	margin: 30px 50px;
+	margin: 10px 50px 30px;
 	p {
 		font-size: 18px;
 	}
@@ -227,8 +227,14 @@ input[type="radio"] {
 	color: red;
 	margin-left: 50px
 }
+
 .admin-search{
 	text-align: center;
+}
+
+.field_with_errors {
+  display: contents;
+  @extend .has-error;
 }
 
 
@@ -573,4 +579,5 @@ input[type="radio"] {
 .new-item-link {
   margin-bottom: 10px;
 }
+
 
