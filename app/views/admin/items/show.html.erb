@@ -1,54 +1,46 @@
-
 <div class="row">
-    <div class="col-xs-">
-　　　　<h3 class="title">商品詳細</h3>
-    </div>
-
-    <div class="col-xs-9">
-    	<div class="item-info row">
-    		<div class="col-xs-6">
-    			<div class="item-info-image">
-    				<%= attachment_image_tag(@item, :image, size: '400x300', fallback: "no_image.jpeg") %>
-				</div>
-			</div>
-
-		       　<div class="col-xs-5">
-		       	　<table class="table" style="border: none;">
-		       		<tbody style="border: none;">
-		       			<tr style="border: none;">
-		       				<th style="border: none; background-color: white;">商品名</th>
-		       				<td style="border: none;"> <%= @item.name %></td>
-		       			</tr>
-		       			<tr style="border: none;">
-		       				<th style="border: none; background-color: white;">商品説明</th>
-		       				<td style="border: none;"><%= @item.description %></td>
-		       			</tr>
-		       			<tr style="border: none;">
-		       				<th style="border: none; background-color: white;">値段</th>
-		       				<td style="border: none;"><%= @item.price %>円</td>
-		       			</tr>
-		       			<tr style="border: none;">
-		       				<th style="border: none; background-color: white;">ジャンル</th>
-		       				<td style="border: none;"><%= @item.genre.name %></td>
-		       			</tr>
-		       			<tr style="border: none;">
-		       				<th style="border: none; background-color: white;">ステータス</th>
-		       				<td style="border: none;"><% if @item.status ==true %>
-				                <p>発売中</p>
-				                <% else %>
-				                <p>売り切れ</p>
-				                <% end %>
-				            </td>
-			            </tr>
-		       		</tbody>
-		       	   </table>
-		       	    <%= link_to "編集", edit_admin_item_path, class: "button btn btn-success" %>
-		       	</div>
-		       </div>
-		    </div>
-		</div>
+  <h3 class="title">商品詳細</h3>
 </div>
 
+<div class="row">
+  <div class="admin-item-info">
+  	<div class="col-xs-5">
+      <div class="item-info-image">
+        <%= attachment_image_tag(@item, :image, size: '400x300', fallback: "no_image.jpg") %>
+      </div>
+    </div>
 
+    <div class="col-xs-6">
+    	<div class="info-content">
+    		<p class="info-head">商品名</p>
+    		<p class="item-info-text"><%= @item.name %></p>
+    	</div>
+    	<div class="info-content">
+    		<p class="info-head">商品説明</p>
+    		<p class="item-info-text"><%= @item.description %></p>
+    	</div>
+    	<div class="info-content">
+    		<p class="info-head">ジャンル</p>
+    		<p class="item-info-text"><%= @item.genre.name %></p>
+    	</div>
+    	<div class="info-content">
+    		<p class="info-head">税込価格(税抜価格)</p>
+    		<p class="item-info-text"><%= "#{(@item.price * 110 / 100).to_s(:delimited)}（#{@item.price.to_s(:delimited)}）" %>円</p>
+    	</div>
+    	<div class="info-content">
+    		<p class="info-head">販売ステータス</p>
+  			<% if @item.status == true %>
+  				<p class="item-info-text">販売中</p>
+  			<% else %>
+  				<p class="item-info-text">売切れ</p>
+  			<% end %>
+    	</div>
+
+    	<div class="actions text-right">
+        <%= link_to "編集する", edit_admin_item_path, class: "btn-lg btn-primary" %>
+      </div>
+		</div>
+	</div>
+</div>
 
 
