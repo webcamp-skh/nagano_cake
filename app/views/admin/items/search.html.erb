@@ -2,10 +2,19 @@
 	<div class="admin-search">
 		<%= search_form_for @i, url: admin_item_search_path do |f| %>
 		<%= f.text_field :name_cont, placeholder: '商品名を入力'%>
-		<%= f.select :status_eq, {'発売中' => true, '販売停止中' => false}, include_blank: "販売ステータス" %>
+		<%= f.select :status_eq, {'販売中' => true, '販売停止中' => false}, include_blank: "販売ステータス" %>
 		<%= f.submit "Search" %>
 		<% end %>
 	</div>
 </div>
 
-<%= render 'index', items: @items %>
+<% if @items.count == 0 %>
+
+  <div class="text-center">
+    <h3>検索に一致するものはありませんでした。</h3>
+  </div>
+
+<% else %>
+  <%= render 'index', items: @items %>
+
+<% end %>

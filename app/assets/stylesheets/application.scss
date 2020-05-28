@@ -207,9 +207,9 @@ input[type="radio"] {
 	display: inline-block;
 }
 
-.alert-errors {
+.alert-errors, #error_explanation {
 	color: red;
-	margin: 30px 50px;
+	margin: 10px 50px 30px;
 	p {
 		font-size: 18px;
 	}
@@ -227,13 +227,19 @@ input[type="radio"] {
 	color: red;
 	margin-left: 50px
 }
+
 .admin-search{
 	text-align: center;
 }
 
+.field_with_errors {
+  display: contents;
+  @extend .has-error;
+}
+
 
 /* トップ */
-.back-image {
+.back-image1 {
   position: relative;
   width: 90%;
   height: 100%;
@@ -243,7 +249,7 @@ input[type="radio"] {
   margin: 30px 0;
 }
 
-.back-image::before{
+.back-image1::before{
   position: absolute;
   background-color: rgba(0, 0, 0, 0.3);
   top: 0;
@@ -499,7 +505,7 @@ input[type="radio"] {
 }
 
 .item-box {
-  margin: 0 1px 40px 0;
+  margin: 0 10px 40px 0;
 }
 
 .title span {
@@ -573,4 +579,5 @@ input[type="radio"] {
 .new-item-link {
   margin-bottom: 10px;
 }
+
 

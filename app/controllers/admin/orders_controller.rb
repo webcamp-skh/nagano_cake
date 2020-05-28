@@ -10,6 +10,7 @@ class Admin::OrdersController < ApplicationController
 
   def index
     @orders = Order.all
+    @orders = @o.result
   end
 
   def user_index

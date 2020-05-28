@@ -14,6 +14,7 @@ class CartItemsController < ApplicationController
       else
         @cart_item.user_id = current_user.id
         @cart_item.save
+        flash[:notice] = "商品をカートに追加しました。"
       end
       redirect_to cart_items_path
   end
@@ -21,17 +22,20 @@ class CartItemsController < ApplicationController
   def destroy
       @cart_item = CartItem.find(params[:id])
       @cart_item.destroy
+      flash[:alert] = "商品をカートから削除しました。"
       redirect_to cart_items_path
   end
 
   def all_destroy
       current_user.cart_items.destroy_all
+      flash[:alert] = "カート内の商品を全て削除しました。"
       redirect_to cart_items_path
   end
 
   def update
       @cart_item = CartItem.find(params[:id])
       @cart_item.update(cart_item_params)
+      flash[:notice] = "商品の数量を変更しました。"
       redirect_to cart_items_path
   end
 

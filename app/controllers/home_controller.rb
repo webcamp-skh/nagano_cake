@@ -1,10 +1,10 @@
 class HomeController < ApplicationController
   def top
     @genres = Genre.where(status: true)
-    @item1 = Item.find(4)
-    @item2 = Item.find(5)
-    @item3 = Item.find(6)
-    @item4 = Item.find(8)
+    @item1 = Item.first
+    @item2 = Item.second
+    @item3 = Item.third
+    @item4 = Item.fourth
   end
 
   def about
