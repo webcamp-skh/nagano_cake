@@ -1,4 +1,5 @@
 class CartItemsController < ApplicationController
+  before_action :baria_user
 
   def index
       @cart_items = current_user.cart_items.all
@@ -41,6 +42,13 @@ class CartItemsController < ApplicationController
   private
   def cart_item_params
   	  params.require(:cart_item).permit(:item_count, :item_id)
+  end
+
+  def baria_user
+    unless user_signed_in?
+      flash[:alert]= "ログインしてください。"
+      redirect_to new_user_session_path
+    end
   end
 
 end
