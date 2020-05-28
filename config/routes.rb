@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   get 'item/search' => 'items#search', as: 'item/search'
   resources :items, only: [:index, :show]
+  resources :posts, only: [:new,:create]
 
   get 'genres/:id' => 'genres#show', as: 'genre_show'
 
