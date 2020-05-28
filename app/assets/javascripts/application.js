@@ -13,9 +13,6 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require jquery
-//= require bootstrap-sprockets
-//= require jquery.jpostal
 //= require_tree .
 
 
@@ -65,3 +62,4 @@ $('#item_image').on('change', function (e) {
     }
     reader.readAsDataURL(e.target.files[0]);
 });
+

@@ -20,4 +20,5 @@ class User < ApplicationRecord
   validates :postal_code, length: {is: 7}, numericality: {only_integer: true}
   validates :address, presence: true
   validates :phone_number, length: {in: 10..11}, numericality: {only_integer: true}
+
 end

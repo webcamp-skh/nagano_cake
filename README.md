@@ -34,4 +34,8 @@
 - ワイヤーフレーム:https://app.diagrams.net/#G1LYhV2TpuVRkNK6DR7XeavSu281aWVGna
 ### 機能一覧
 - テーブル定義書:https://docs.google.com/spreadsheets/d/1zYCPY0BWheQC_Z2dF2zrEVQ3d6PAnJilJP3fmhm0_wo/edit#gid=1049235235
+<<<<<<< HEAD
 - アプリケーション詳細設計:https://docs.google.com/spreadsheets/d/1VytgmcbcZhpCeP91KEMiHZp-Bbz5xJq3OKnxHL3uCI0/edit#gid=0
+=======
+- アプリケーション詳細設計:https://docs.google.com/spreadsheets/d/1VytgmcbcZhpCeP91KEMiHZp-Bbz5xJq3OKnxHL3uCI0/edit#gid=0
+
