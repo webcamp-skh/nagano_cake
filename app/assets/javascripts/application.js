@@ -58,10 +58,15 @@ $(function() {
   });
 });
 
-$('#item_image').on('change', function (e) {
+
+
+$('#item_image').change(function() {
+  try {
     var reader = new FileReader();
-    reader.onload = function (e) {
-        $("#preview").attr('src', e.target.result);
+    reader.onload = function(e) {
+      $('#preview').attr('src', e.target.result);
     }
-    reader.readAsDataURL(e.target.files[0]);
+    reader.readAsDataURL(this.files[0]);
+  } catch(e) {
+  }
 });
