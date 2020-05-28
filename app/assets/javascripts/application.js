@@ -16,7 +16,10 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery.jpostal
+//= require jquery.raty
 //= require_tree .
+
+
 
 
 $(function() {
@@ -70,3 +73,6 @@ $('#item_image').change(function() {
   } catch(e) {
   }
 });
+
+
+

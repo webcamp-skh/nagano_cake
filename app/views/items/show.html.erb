@@ -30,7 +30,11 @@
         <%= f.submit "カートに入れる", class: "btn btn-primary" %>
       <% end %>
     </div>
+     <%= link_to "レビューを書く", new_item_post_path(@item) %>
+     <% @posts.each do |post| %>
+     <%= post.title %>
+     <%= post.rate %>
+     <% end %>
   </div>
-
 </div>
 

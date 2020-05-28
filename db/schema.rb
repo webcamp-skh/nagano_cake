@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_27_095330) do
+ActiveRecord::Schema.define(version: 2020_05_28_094538) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "postal_code"
@@ -114,6 +114,8 @@ ActiveRecord::Schema.define(version: 2020_05_27_095330) do
     t.float "rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "item_id"
   end
 
   create_table "rates", force: :cascade do |t|

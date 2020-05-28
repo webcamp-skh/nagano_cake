@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
   	  @item = Item.find(params[:id])
       @cart_item = CartItem.new
       @genres = Genre.where(status: true)
+      @posts = @item.posts
   end
 
   def search

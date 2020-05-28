@@ -12,15 +12,15 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users, only: [:show, :edit, :update] do
-    resources :addresses, only: [:index, :edit, :update, :create, :destroy]
+  resources :addresses, only: [:index, :edit, :update, :create, :destroy]
   end
   get 'users/:id/quit' => 'users#quit', as: 'quit'
   put 'users/:id/hide' => 'users#hide', as: 'users_hide'
 
   get 'item/search' => 'items#search', as: 'item/search'
-  resources :items, only: [:index, :show]
-  resources :posts, only: [:new,:create]
-
+  resources :items, only: [:index, :show] do
+  resources :posts, only: [:new,:create,:destroy]
+  end
   get 'genres/:id' => 'genres#show', as: 'genre_show'
 
   resources :cart_items, only: [:create, :index, :destroy, :update]
