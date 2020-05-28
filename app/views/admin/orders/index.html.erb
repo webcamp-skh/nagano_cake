@@ -1,6 +1,6 @@
 <div class="row">
   <div class="admin-search">
-    <%= search_form_for @o, url: admin_orders_path do |f| %>
+    <%= search_form_for @o, url: admin_orders_path, class: "admin-search-form" do |f| %>
       <%= f.text_field :user_last_name_or_user_first_name_cont, placeholder: '購入者検索' %>
       <%= f.date_field :created_at_gteq, include_blank: true %>~
       <%= f.date_field :created_at_lteq, include_blank: true %>

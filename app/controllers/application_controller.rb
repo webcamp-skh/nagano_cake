@@ -17,12 +17,12 @@ class ApplicationController < ActionController::Base
 		else
 		    root_path
 		end
-	 end
+	end
 
-	 def set_search
-	 	@q = Item.ransack(params[:q])
- 		@items = @q.result
-	 end
+	def set_search
+		@q = Item.ransack(params[:q])
+    @items = @q.result.where(status: true)
+	end
 
 	private
 	def configure_permitted_parameters

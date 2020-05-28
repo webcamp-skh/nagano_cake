@@ -29,9 +29,9 @@
 					<tr>
 						<td><%= genre.name %></td>
 						<% if genre.status == true %>
-							<td>有効 <%= link_to "編集する", edit_admin_genre_path(genre), class: "btn btn-default" %></td>
+							<td>有効<%= link_to "編集する", edit_admin_genre_path(genre), class: "btn btn-primary left-space" %></td>
 						<% else %>
-							<td>無効 <%= link_to "編集する", edit_admin_genre_path(genre), class: "btn btn-danger" %></td>
+							<td class="font-red">無効<%= link_to "編集する", edit_admin_genre_path(genre), class: "btn btn-primary left-space" %></td>
 						<% end %>
 					</tr>
 				<% end %>
