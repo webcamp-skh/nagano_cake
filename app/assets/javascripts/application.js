@@ -10,10 +10,10 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require jquery
 //= require bootstrap-sprockets
 //= require jquery.jpostal
 //= require jquery.raty
@@ -62,17 +62,45 @@ $(function() {
 });
 
 
-
-$('#item_image').change(function() {
-  try {
-    var reader = new FileReader();
-    reader.onload = function(e) {
-      $('#preview').attr('src', e.target.result);
+ $(function() {
+  $(document).on('turbolinks:load',() => {
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+    $('#preview').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+        }
     }
+    $("#item_img").change(function(){
+        readURL(this);
+    });
+  });
+  });
+
+  $(function() {
+    $(document).on('turbolinks:load',() => {
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+    $('#prev').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+        }
+    }
+
     reader.readAsDataURL(this.files[0]);
   } catch(e) {
   }
 });
+
+
+
+    $("#item_image").change(function(){
+        readURL(this);
+    });
 
 
 

@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="admin-search">
-		<%= search_form_for @u, url: admin_users_path do |f| %>
+		<%= search_form_for @u, url: admin_users_path, class: "admin-search-form" do |f| %>
 		<%= f.text_field :last_name_or_first_name_cont, placeholder: '名前を入力'%>
 		<%= f.select :status_eq, {'有効' => true, '退会' => false}, include_blank: "会員ステータス" %>
 		<%= f.submit "Search" %>
