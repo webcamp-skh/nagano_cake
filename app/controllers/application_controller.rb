@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
 
 	def set_search
 		@q = Item.ransack(params[:q])
-    @items = @q.result.where(status: true).page(params[:page]).per(12)
+    	@items = @q.result.page(params[:page]).reverse_order
 	end
 
 	private
