@@ -18,12 +18,12 @@ class ApplicationController < ActionController::Base
 		else
 		    root_path
 		end
-	 end
+	end
 
-	 def set_search
-	 	@q = Item.ransack(params[:q])
- 		@items = @q.result
-	 end
+	def set_search
+		@q = Item.ransack(params[:q])
+    	@items = @q.result.page(params[:page]).reverse_order
+	end
 
 	private
 	def configure_permitted_parameters

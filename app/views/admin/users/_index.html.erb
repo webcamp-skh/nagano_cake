@@ -18,16 +18,17 @@
 						<% end %>
 					</td>
 					<td><%= user.email %></td>
-					<td><% if user.status == true %>
-							有効
-						<% else %>
-							退会
-						<% end %>
+					<% if user.status == true %>
+						<td>有効</td>
+					<% else %>
+						<td class="font-red">退会</td>
+					<% end %>
 					</td>
 				</tr>
 				<% end %>
 			</tbody>
 		</table>
+		<%= paginate users %>
 	</div>
 </div>
 <div class="col-xs-offset-5"><%= paginate users %></div>

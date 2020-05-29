@@ -1,5 +1,6 @@
 class Admin::ItemsController < ApplicationController
 	before_action :authenticate_admin!
+	before_action :item_search
 
 	def new
 		@item = Item.new
@@ -43,10 +44,10 @@ class Admin::ItemsController < ApplicationController
 
 	def search
 		@i = Item.ransack(params[:q])
-		@items = @i.result
+		@items = @i.result.page(params[:page]).reverse_order
 	end
 
-	def set_search
+	def item_search
 		@i = Item.ransack(params[:q])
 		@items = @i.result
 	end

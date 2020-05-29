@@ -79,6 +79,11 @@ footer {
 
 
 /* 共通 */
+
+.pagination{
+  display: block;
+  text-align: center;
+}
 .main-body {
 	min-height: 700px;
   padding-top: 130px
@@ -144,6 +149,14 @@ select {
   background-size: 5px 5px, 5px 5px;
   background-position: calc(100% - 15px) 50%, calc(100% - 10px) 50%;
   background-repeat: no-repeat;
+}
+
+.admin-search-form select {
+  padding: 0.4em 2.0em 0.4em 0.5em;
+  font-size: 13px; /* フォントサイズ */
+  border-radius: 0; /* 角丸 */
+  border: solid 0.4px #CCCCCC; /* 枠線 */
+  background-size: 5px 5px, 5px 5px;
 }
 
 $color1: #f4f4f4;
@@ -544,7 +557,7 @@ input[type="radio"] {
   margin-bottom: 50px;
 }
 
-#item_image {
+#item_img, #item_image {
   margin-top: 30px;
   font-size: 16px;
 }
@@ -580,4 +593,7 @@ input[type="radio"] {
   margin-bottom: 10px;
 }
 
-
+.label-top label {
+  vertical-align: top;
+  padding-top: 10px;
+}
