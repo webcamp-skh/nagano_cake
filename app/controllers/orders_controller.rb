@@ -56,7 +56,7 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_user.orders.all
+    @orders = current_user.orders.page(params[:page]).reverse_order
   end
 
   def show
