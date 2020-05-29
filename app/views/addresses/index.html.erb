@@ -1,9 +1,11 @@
-	<div class="row">
-		<h3 class="title">配送先登録/一覧</h3>
-		<%= render 'layouts/error_message', model: @address %>
-		<%= render 'form', user: @user, addresses: @addresses %>
-	</div>
+<div class="row">
+	<h3 class="title">配送先登録/一覧</h3>
+	<%= render 'layouts/error_message', model: @address %>
+	<%= render 'form', user: @user, addresses: @addresses %>
+</div>
 
+<div class="row">
+	<div class="col-xs-9">
 		<% if @addresses.count != 0 %>
 
 			<table class="table" style="margin-top: 50px;">
@@ -36,4 +38,6 @@
 			</p>
 
 		<% end %>
+	</div>
+</div>
 

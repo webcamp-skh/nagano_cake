@@ -56,14 +56,14 @@
 
   <div class="row">
     <div class="pull-left col-xs-9">
-      <%= link_to "買い物を続ける", items_path, class: "btn btn-primary" %>
+      <%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
     </div>
 
   	<div class="pull-right col-xs-3">
       <table class="table">
         <tr>
           <th>合計金額</th>
-  				<td><%= total_price.to_s(:delimited) %></td>
+  				<td><%= total_price.to_s(:delimited) %>円</td>
   			</tr>
   		</table>
   	</div>

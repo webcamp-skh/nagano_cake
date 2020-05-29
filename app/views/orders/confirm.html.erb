@@ -17,9 +17,9 @@
         <% current_user.cart_items.each do |cart_item| %>
           <tr>
             <td><%= attachment_image_tag cart_item.item, :image, size: "70x50", fallback: "no_image.jpg" %> <%= cart_item.item.name %></td>
-            <td><%= (cart_item.item.price * 110 / 100).to_s(:delimited) %></td>
+            <td><%= (cart_item.item.price * 110 / 100).to_s(:delimited) %>円</td>
             <td><%= cart_item.item_count %></td>
-            <td><%= (cart_item.item.price * cart_item.item_count * 110 / 100).to_s(:delimited) %></td>
+            <td><%= (cart_item.item.price * cart_item.item_count * 110 / 100).to_s(:delimited) %>円</td>
           </tr>
         <% end %>
       </tbody>
@@ -30,15 +30,15 @@
     <table class="table">
       <tr>
         <th>送料</th>
-        <td><%= @order.shipping %></td>
+        <td><%= @order.shipping %>円</td>
       </tr>
       <tr>
         <th>商品合計</th>
-        <td><%= @item_total_price.to_s(:delimited) %></td>
+        <td><%= @item_total_price.to_s(:delimited) %>円</td>
       </tr>
       <tr>
         <th>請求金額</th>
-        <td><%= @order.billing_amount.to_s(:delimited) %></td>
+        <td><%= @order.billing_amount.to_s(:delimited) %>円</td>
       </tr>
     </table>
   </div>

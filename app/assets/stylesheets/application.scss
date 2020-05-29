@@ -252,39 +252,63 @@ input[type="radio"] {
 
 
 /* トップ */
+#container {
+  display: block;
+  width: 100%;
+  height: 350px;
+  margin: 0 auto;
+}
+
+#theTarget {
+  margin : 0 auto;
+  position : relative;
+  width: 100%;
+  height: 350px;
+  z-index: 1;
+}
+
 .back-image1 {
-  position: relative;
-  width: 90%;
-  height: 100%;
   background-image: url(chocolate-marshmallow-cake.jpg);
   background-size: cover;
   background-position: center;
-  margin: 30px 0;
+}
+.back-image2 {
+  background-image: url(freshly-baked-lemon-cake-with-powdered-sugar.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.back-image3 {
+  background-image: url(lucy-claire-QrfGPsSN1es-unsplash.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.back-image4 {
+  background-image: url(kelvin-yup-a-niLBbZF4o-unsplash.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
-.back-image1::before{
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.3);
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  content: ' ';
+#slideshow {
+  position: relative;
+  width: 90%;
+  margin-bottom: 30px;
 }
 
 .welcom-text {
+  display: block;
+  width: 100%;
   height: 350px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-size: 1.2em;
+  text-align: center;
   padding-top: 130px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  z-index: 2;
 }
 
-.welcom-text p {
-  position: absolute;
-  width: 100%;
-  color: #fff;
-  text-align: center;
-  font-size: 1.2em;
-  margin: 0 auto;
-}
 
 .items-link {
   margin-right: 30px;
@@ -333,17 +357,6 @@ input[type="radio"] {
 	padding-left: 0px;
 }
 
-.user_info th{
-	border: solid 1px #000;
-	background-color: #eeeeee;
-	padding: 10px 70px 10px 2px;
-	font-size: 14px;
-}
-.user_info td{
-	border: solid 1px #000;
-	padding: 10px 200px 10px 2px;
-	font-size:14px;
-}
 
 .addresses-list{
 	padding-top: 50px;
@@ -596,4 +609,14 @@ input[type="radio"] {
 .label-top label {
   vertical-align: top;
   padding-top: 10px;
+}
+
+.item-neme-price {
+  height: 40px
+}
+
+.glyphicon-chevron-right {
+  float: right;
+  margin-right: 10px;
+  color: #333;
 }
