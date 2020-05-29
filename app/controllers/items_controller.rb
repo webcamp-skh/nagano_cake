@@ -2,8 +2,9 @@ class ItemsController < ApplicationController
 
   def index
   	  @item = Item.new
-  	  @items = Item.where(status: true).page(params[:page]).per(12)
       @genres = Genre.where(status: true)
+  	  @items = Item.where(status: true).where(genres_status: true).page(params[:page]).per(12)
+
   end
 
   def show
