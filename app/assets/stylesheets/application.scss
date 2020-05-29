@@ -286,6 +286,7 @@ input[type="radio"] {
 #slideshow {
   position: relative;
   width: 90%;
+  margin-bottom: 30px;
 }
 
 .welcom-text {
@@ -294,6 +295,7 @@ input[type="radio"] {
   height: 350px;
   background-color: rgba(0, 0, 0, 0.3);
   color: #fff;
+  font-size: 1.2em;
   text-align: center;
   padding-top: 130px;
   position: absolute;
@@ -613,4 +615,14 @@ input[type="radio"] {
 .label-top label {
   vertical-align: top;
   padding-top: 10px;
+}
+
+.item-neme-price {
+  height: 40px
+}
+
+.glyphicon-chevron-right {
+  float: right;
+  margin-right: 10px;
+  color: #333;
 }
