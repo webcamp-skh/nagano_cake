@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
       @genres = Genre.where(status: true)
   end
 
-  def search
+  def search
       @genres = Genre.where(status: true)
   end
 
