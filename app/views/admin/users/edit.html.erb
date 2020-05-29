@@ -1,6 +1,7 @@
 <div class="container">
 	<div class="row">
 		<h3 class="title"><%= @user.last_name %><%= @user.first_name %>さんの会員情報編集</h3>
+		<%= render 'layouts/error_message', model: @user %>
 
 		<%= form_for [:admin,@user] do |f| %>
 			<div class="form-horizontal">

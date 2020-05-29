@@ -2,12 +2,15 @@ class Admin::OrderItemsController < ApplicationController
   before_action :authenticate_admin!
   def update
     @order_item = OrderItem.find(params[:id])
+    @order_items = OrderItem.where(order_id: @order_item.order_id)
     if @order_item.update(order_item_params)
       flash[:notice] = "製作ステータスが更新されました。"
-      if @order_item.making_status == "製作中"
+      if @order_item.order.order_status != "製作中" && @order_item.making_status == "製作中"
         @order_item.order.update(order_status: "製作中")
         flash[:success] = "注文ステータスが更新されました。"
-      elsif @order_item.making_status == "製作完了"
+      end
+      complete_items = @order_items.where(making_status: "製作完了")
+      if @order_items.count == complete_items.count
         @order_item.order.update(order_status: "発送準備中")
         flash[:success] = "注文ステータスが更新されました。"
       end
