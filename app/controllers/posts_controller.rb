@@ -5,6 +5,10 @@ class PostsController < ApplicationController
 		@item = Item.find(params[:item_id])
     end
 
+    def index
+        @posts = current_user.posts(params[:item_id])
+    end
+
 	def create
 		item = Item.find(params[:item_id])
 	    post = current_user.posts.new(post_params)

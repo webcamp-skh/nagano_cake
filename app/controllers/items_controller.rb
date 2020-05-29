@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   	  @items = Item.where(status: true).page(params[:page]).reverse_order
       @genres = Genre.where(status: true)
 
+
   end
 
   def show
@@ -13,6 +14,7 @@ class ItemsController < ApplicationController
       @genres = Genre.where(status: true)
       @posts = @item.posts
   end
+
 
   def search
       @genres = Genre.where(status: true)

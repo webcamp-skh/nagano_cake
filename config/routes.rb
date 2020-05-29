@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   get 'item/search' => 'items#search', as: 'item/search'
   resources :items, only: [:index, :show] do
-  resources :posts, only: [:new,:create,:destroy]
+  resources :posts, only: [:new,:index,:create,:destroy]
   end
   get 'genres/:id' => 'genres#show', as: 'genre_show'
 

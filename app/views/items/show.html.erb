@@ -7,7 +7,7 @@
     <div class="item-info row">
       <div class="col-xs-6">
         <div class="item-info-image">
-          <%= attachment_image_tag(@item, :image, size: '400x300', fallback: "no_image.jpeg") %>
+          <%= attachment_image_tag(@item, :image, size: '400x300', fallback: "no_image.jpg") %>
         </div>
       </div>
       <div class="col-xs-6">
@@ -29,12 +29,12 @@
         <%= f.select :item_count, (1..50), class: "item-count-select" %>
         <%= f.submit "カートに入れる", class: "btn btn-primary" %>
       <% end %>
+      <%= link_to "レビューを書く", new_item_post_path(@item) %>
+      <%= link_to "レビューを見る", item_posts_path(@item) %>
     </div>
-     <%= link_to "レビューを書く", new_item_post_path(@item) %>
-     <% @posts.each do |post| %>
-     <%= post.title %>
-     <%= post.rate %>
-     <% end %>
   </div>
 </div>
+
+
+
 
