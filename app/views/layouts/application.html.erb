@@ -16,11 +16,11 @@
           <div class="header-logo col-xs-3">
             <% unless admin_signed_in? %>
               <%= link_to root_path do %>
-                <%= image_tag "logo.png", class: "logo" %>
+                
               <% end %>
             <% else %>
               <%= link_to admin_root_path do %>
-                <%= image_tag "logo.png", class: "logo" %>
+                
               <% end %>
             <% end %>
 
